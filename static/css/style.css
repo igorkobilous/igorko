@@ -1,0 +1,16 @@
+/* Global Style*/
+h1, h2, h3, h4, h5, h6{
+	font-weight: bold;
+}
+
+#group-selector>select{
+	width: 85%;
+	margin-top: 35px;
+	background-color: #ffffff;
+	border: 1px solid #cccccc; 
+	border-radius: 5px;
+}
+
+#content-colums{
+	margin-top: 10px;
+}

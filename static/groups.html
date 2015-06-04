@@ -31,6 +31,7 @@
 					<option value="">Усі студенти</option>
 					<option value="">КБ-31</option>
 					<option value="">КА-31</option>
+					<option value="">КТ-31</option>
 				</select>
 			</div>
 		</div>
@@ -40,9 +41,9 @@
 		<div class="row" id="sub-header">
 			<div class="col-xs-12">
 				<ul class="nav nav-tabs">
-				  <li role="presentation" class="active"><a href="#">Студенти</a></li>
+				  <li role="presentation"><a href="#">Студенти</a></li>
 				  <li role="presentation"><a href="#">Відвідування</a></li>
-				  <li role="presentation"><a href="#">Групи</a></li>
+				  <li role="presentation" class="active"><a href="#">Групи</a></li>
 				</ul>
 			</div>
 		</div>
@@ -53,13 +54,10 @@
 
 			<div class="col-xs-12" id="content-column">
 
-				<!-- Status message -->
-				<div class="alert alert-warning" role="alert">Зміни скасовано</div>
-
-				<h2>База студентів</h2>
+				<h2>Групи</h2>
 
 				<!-- Add student Button-->
-				<a class="btn btn-primary" href="#">Додати студента</a>
+				<a class="btn btn-primary" href="#">Додати групу</a>
 
 				<div>
 				<!-- Start students Listing -->
@@ -67,20 +65,16 @@
 					<thead>
 						<tr>
 							<th><a href="#">№</a></th>
-							<th>Фото</th>
-							<th><a href="#">Прізвище &uarr;</a></th>
-							<th><a href="#">Ім'я</a></th>
-							<th><a href="#">№ білету</a></th>
+							<th><a href="#">Назва &uarr;</a></th>
+							<th><a href="#">Староста</a></th>
 							<th>Дії</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
+						<tr class='evan'>
 							<td>1</td>
-							<td><img height="30" width="30" src="./img/igorko.jpg" class='img-circle'></td>
-							<td><a href="#">Білоус</a></td>
-							<td><a href="#">Ігор</a></td>
-							<td>2123</td>
+							<td><a href="#">КБ-31</a></td>
+							<td><a href="#">Малюк Андрій</a></td>
 							<td>
 								<div class="btn-group">
   									<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Дія <span class="caret"></span>
@@ -95,10 +89,8 @@
 						</tr>
 						<tr>
 							<td>2</td>
-							<td><img height="30" width="30" src="./img/malyuk.jpg" class='img-circle'></td>
-							<td><a href="#">Малюк</a></td>
-							<td><a href="#">Андрій</a></td>
-							<td>254</td>
+							<td><a href="#">КА-31</a></td>
+							<td><a href="#">Мульський Михайло</a></td>
 							<td>
 								<div class="btn-group">
   									<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Дія <span class="caret"></span>
@@ -111,12 +103,10 @@
 								</div>	
 							</td>
 						</tr>
-						<tr>
+						<tr class="evan">
 							<td>3</td>
-							<td><img height="30" width="30" src="./img/dima.jpg" class='img-circle'></td>
-							<td><a href="#">Верескля</a></td>
-							<td><a href="#">Дмитро</a></td>
-							<td>176</td>
+							<td><a href="#">КТ-31</a></td>
+							<td><a href="#">Гуль Юрій</a></td>
 							<td>
 								<div class="btn-group">
   									<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Дія <span class="caret"></span>
@@ -128,18 +118,15 @@
 								  </ul>
 								</div>	
 							</td>
+						</tr></td>
 						</tr>
 					</tbody>
 				</table>
 				<nav>
 				  <ul class="pagination">
-				    <li><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
-				    <li class="active"><a href="#">1</a></li>
+				    <li class="disabled"><a href="#">1</a></li>
 				    <li><a href="#">2</a></li>
-				    <li><a href="#">3</a></li>
-				    <li><a href="#">4</a></li>
-				    <li><a href="#">5</a></li>
-				    <li><a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+				    <li><a href="#" aria-label="Next"><span aria-hidden="true">Далі</span></a></li>
 				  </ul>
 				</nav>
 				</div>

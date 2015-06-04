@@ -49,9 +49,6 @@ h1, h2, h3, h4, h5, h6{
 	background: #f4f4f4;
 }
 
-.table tr:hover{
-	background: #f2f2f2;
-}
 
 .h2_edit{
 	text-align: center;
@@ -84,4 +81,9 @@ td.right{
 
 textarea{
 	overflow: auto;
+}
+
+#evan1{
+	background: #f2f2f2;
+	border-top: 1px solid #DDDDDD;
 }

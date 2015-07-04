@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+	<meta charset="UTF-8"/>
+	<title>Сервіс Обліку Студентів</title>
+	<meta name="description"
+		  value="Система Обліку Студентів Навчалнього Закладу"/>
+	<link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/bootstrap/3.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body>
+
+	<!-- Start Container-->
+	<div class="container">
+
+		<!-- Logo -->
+		<div class="col-xs-8">
+			<h2 class="h2_edit">Форма редагування студента</h2>
+		</div>
+		<div>
+			<table class="col-xs-8 edit_student">
+				<tr>
+					<td class="right">Ім'я*</td>
+					<td><input type="text"></td>
+				</tr>
+				<tr>
+					<td class="right">По-батькові</td>
+					<td><input type="text"></td>
+				</tr>
+				<tr>
+					<td class="right">Прізвище*</td>
+					<td><input type="text"></td>
+				</tr>
+				<tr>
+					<td class="right">№ білету*</td>
+					<td><input type="text"></td>
+				</tr>
+				<tr>
+					<td class="right">Дата народження</td>
+					<td><input type="text"></td>
+				</tr>
+				<tr>
+					<td class="right">Фото</td>
+					<td>
+						<p>Наразі: <a href="#">student_photos/None_bilous3_1.jpg</a></p>
+						<p>Очистити</p>
+						<input type="file">
+					</td>
+				</tr>
+				<tr>
+					<td class="right">Група*</td>
+					<td><select class="gr_selector">
+							<option value="">КБ-31</option>
+							<option value="">КА-31</option>
+							<option value="">КТ-31</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td class="right">Додаткові нотатки</td>
+					<td><textarea name="comment" cols="19" rows="6"></textarea></td>
+				</tr>
+				<tr id="evan1">
+				<td></td>
+				<td>
+					<button type="button" class="btn btn-primary">Зберегти</button>
+					<button type="button" class="btn btn-link">Скасувати</button>
+				</td>
+				</tr>
+			</table>
+		</div>
+
+	</div>
+	<!-- End Container -->
+
+
+	<!-- Javascripts Section -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
+<script src="https://cdn.jsdelivr.net/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

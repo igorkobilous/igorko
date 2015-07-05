@@ -1,9 +1,11 @@
-				{% extends "students/base.html" %}
-				{% load static from staticfiles %}
-				{% block meta_title %}Групи{% endblock meta_title %}
-				{% block title %}Групи{% endblock title %}
+{% extends "students/base.html" %}
 
-				{% block content %}
+{% block meta_title %}Список Груп{% endblock meta_title %}
+
+{% block title %}Список Груп{% endblock title %}
+
+
+{% block content %}
 
 				<!-- Add student Button-->
 				<a class="btn btn-primary" href="{% url "groups_add" %}">Додати групу</a>
@@ -24,14 +26,13 @@
 						<tr class="evan">
 							<td>{{forloop.counter}}</td>
 							<td><a href="{% url "groups_edit" group.id %}">{{ group.name }}</a></td>
-							<td><a href="{% url "students_edit" group.id %}">{{ group.leader.name }}</a></td>
+							<td><a href="{% url "students_edit" group.leader.id %}">{{ group.leader.name }}</a></td>
 							<td>
 								<div class="btn-group">
   									<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Дія <span class="caret"></span>
   									</button>
   									<ul class="dropdown-menu" role="menu">
 								    <li><a href="{% url "groups_edit" group.id %}">Редагувати</a></li>
-								    <li><a href="/journal/{{ group.id }}">Відвідування</a></li>
 								    <li><a href="{% url "groups_delete" group.id %}">Видалити</a></li>
 								  </ul>
 								</div>	
@@ -47,5 +48,5 @@
 				    <li><a href="#" aria-label="Next"><span aria-hidden="true">Далі</span></a></li>
 				  </ul>
 				</nav>
-				{% endblock content %}
+{% endblock content %}
 				

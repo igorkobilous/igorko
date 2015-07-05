@@ -10,7 +10,7 @@
 		  value="Система Обліку Студентів Навчалнього Закладу"/>
 	<link rel="stylesheet"
         href="https://cdn.jsdelivr.net/bootstrap/3.3.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{% static "css/main.css" %}">
+    <link rel="stylesheet" href="{{ PORTAL_URL }}{% static "css/main.css" %}">
     {% block extra_css %}{% endblock extra_css %}
 </head>
 
@@ -43,30 +43,27 @@
 		<div class="row" id="sub-header">
 			<div class="col-xs-12">
 				<ul class="nav nav-tabs">
-				  <li role="presentation" class="active"><a href="{% url "home" %}">Студенти</a></li>
-				  <li role="presentation"><a href="/journal">Відвідування</a></li>
-				  <li role="presentation"><a href="{% url "groups" %}">Групи</a></li>
+				  <li role="presentation" {% if request.path == "/" %}class="active"{% endif %}><a href="{% url "home" %}">Студенти</a></li>
+				  <li role="presentation" {% if '/journal' in request.path  %}class="active"{% endif %}><a href="/journal">Відвідування</a></li>
+				  <li role="presentation" {% if  '/groups' in request.path %}class="active"{% endif %}><a href="{% url "groups" %}">Групи</a></li>
 				</ul>
 			</div>
 		</div>
 		<!-- End SubHeader-->
 
 		<!-- Start Main page Content-->
-		<div class="row" id="content-colums">
+		<div class="row" id="content-columns">
+      		<div class="col-xs-12" id="content-column">
 
-			<div class="col-xs-12" id="content-column">
+        		{% comment "Not used alert so far" %}
+        		<div class="alert alert-warning" role="alert">Status Update!</div>
+        		{% endcomment %}
 
-				{% comment "Not used alert so far" %}
-				<div class="alert alert-warning" role="alert">Status Update!</div>
-				{% endcomment %}
+        		<h2>{% block title %}{% endblock title %}</h2>
+        		{% block content %}{% endblock content %}
 
-				<h2>{% block title %}{% endblock title %}</h2>
-				{% block content %}{% endblock content %}
-				
-
-			</div>
-
-		</div>
+      		</div>
+    	</div>
 		<!-- End Main page Content-->
 
 		<!-- Start Footer-->

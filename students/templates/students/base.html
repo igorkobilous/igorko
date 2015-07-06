@@ -10,7 +10,8 @@
 		  value="Система Обліку Студентів Навчалнього Закладу"/>
 	<link rel="stylesheet"
         href="https://cdn.jsdelivr.net/bootstrap/3.3.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{ PORTAL_URL }}{% static "css/main.css" %}">
+    <link rel="stylesheet" 
+    	href="{{ PORTAL_URL }}{% static "css/main.css" %}">
     {% block extra_css %}{% endblock extra_css %}
 </head>
 
@@ -44,7 +45,7 @@
 			<div class="col-xs-12">
 				<ul class="nav nav-tabs">
 				  <li role="presentation" {% if request.path == "/" %}class="active"{% endif %}><a href="{% url "home" %}">Студенти</a></li>
-				  <li role="presentation" {% if '/journal' in request.path  %}class="active"{% endif %}><a href="/journal">Відвідування</a></li>
+				  <li role="presentation" {% if '/journal' in request.path  %}class="active"{% endif %}><a href="{% url "journal" %}">Відвідування</a></li>
 				  <li role="presentation" {% if  '/groups' in request.path %}class="active"{% endif %}><a href="{% url "groups" %}">Групи</a></li>
 				</ul>
 			</div>

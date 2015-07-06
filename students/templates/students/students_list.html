@@ -9,6 +9,7 @@
 
 				
 				<!-- Start students Listing -->
+				{% if students %}
 				<table class="table">
 					<thead>
 						<tr>
@@ -43,6 +44,9 @@
 						{% endfor%}
 					</tbody>
 				</table>
+				{% else %}
+				<p>Поки немає студентів у базі</p>
+				{% endif %}
 				<nav>
 				  <ul class="pagination">
 				    <li><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>

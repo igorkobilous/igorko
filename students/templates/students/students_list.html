@@ -1,9 +1,10 @@
-				{% extends "students/base.html" %}
-				{% load static from staticfiles %}
-				{% block meta_title %}Студенти{% endblock meta_title %}
-				{% block title %}База студентів{% endblock title %}
+{% extends "students/base.html" %}
+{% load static from staticfiles %}
+{% block meta_title %}Студенти{% endblock meta_title %}
 
-				{% block content %}
+			{% block title %}База студентів{% endblock title %}
+
+			{% block content %}
 				<!-- Add student Button-->
 				<a class="btn btn-primary" href="{% url "students_add" %}">Додати студента</a>
 
@@ -47,16 +48,10 @@
 				{% else %}
 				<p>Поки немає студентів у базі</p>
 				{% endif %}
-				<nav>
-				  <ul class="pagination">
-				    <li><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
-				    <li class="active"><a href="#">1</a></li>
-				    <li><a href="#">2</a></li>
-				    <li><a href="#">3</a></li>
-				    <li><a href="#">4</a></li>
-				    <li><a href="#">5</a></li>
-				    <li><a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
-				  </ul>
-				</nav>
-				{% endblock content %}
+				{% include "students/pagination.html" %}
+				{%block pag%}{%endblock pag%}
+				
+			{% endblock content %}
+			
+
 				

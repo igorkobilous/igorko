@@ -89,7 +89,7 @@ DATABASES = {
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'uk'
 
 TIME_ZONE = 'UTC'
 
@@ -109,3 +109,6 @@ STATIC_URL = '/static/'
 #        "django.core.context_processors.request",
 #        "studentsdb.context_processors.students_proc",
 #        )
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, '..', 'media')

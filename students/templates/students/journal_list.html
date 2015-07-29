@@ -64,7 +64,7 @@
 					</thead>
 					<tbody>
 					{% for student in students_journal %}
-						<tr>	
+						<tr class="evan">	
 							<td>{{ forloop.counter }}</td>
 							<td>{{ student.name }}</td>
 							<td><input type="checkbox"></td>
@@ -109,3 +109,4 @@
 		</div>
 		<!-- End Main page Content-->
 {% endblock content %}
+

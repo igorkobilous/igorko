@@ -12,21 +12,51 @@
 				<!-- Start students Listing -->
 				{% if students %}
 				<table class="table">
+					{% with order_by=request.GET.order_by reverse=request.GET.reverse %}
 					<thead>
 						<tr>
-							<th><a href="#">№</a></th>
+							<th>
+							<a href="{% url "home" %}?order_by=number{% if order_by == 'number' and reverse != '1'%}&amp;reverse=1{% endif %}">№
+							{% if order_by == 'number' and reverse != '1' %}&uarr;
+							{% elif order_by == 'number' and reverse == '1' %}&darr;
+							{% endif %}</a>
+							</th>
 							<th>Фото</th>
-							<th><a href="#">Прізвище &uarr;</a></th>
-							<th><a href="#">Ім'я</a></th>
-							<th><a href="#">№ білету</a></th>
+							<th>
+							<a href="{% url "home" %}?order_by=last_name{% if order_by == 'last_name' and reverse != '1' %}&amp;reverse=1{% endif %}">Прізвище 
+							{% if order_by == 'last_name' and reverse != '1' %}&uarr;
+							{% elif order_by == 'last_name' and reverse == '1' %}&darr;
+							{% endif %}</a>
+							</th>
+							<th>
+							<a href="{% url "home" %}?order_by=first_name{% if order_by == 'first_name' and reverse != '1' %}&amp;reverse=1{% endif %}">Ім'я 
+							{% if order_by == 'first_name' and reverse != '1' %}&uarr;
+							{% elif order_by == 'first_name' and reverse == '1' %}&darr;
+							{% endif %}</a>
+							</th>
+							<th>
+							<a href="{% url "home" %}?order_by=ticket{% if order_by == 'ticket' and reverse != '1' %}&amp;reverse=1{% endif %}">№ білету
+							{% if order_by == 'ticket' and reverse != '1' %}&uarr;
+							{% elif order_by == 'ticket' and reverse == '1' %}&darr;
+							{% endif %}</a>
+							</th>
 							<th>Дії</th>
 						</tr>
 					</thead>
+					{% endwith %}
 					<tbody>
 						{% for student in students %}
 						<tr class="evan">
 							<td>{{ forloop.counter }}</td>
-							<td><img height="30" width="30" src="{{ student.image}}" class='img-circle'></td>
+							<td>
+							{% if student.photo %}
+					          <img class="img-circle" src="{{ student.photo.url }}" height="30"
+					               width="30" />
+					        {% else %}
+					          <img class="img-circle" src="{% static "img/default_user.png" %}"
+					               height="30" width="30" />
+					        {% endif %}
+							</td>
 							<td><a href="{% url "students_edit" student.id %}">{{ student.last_name }}</a></td>
 							<td><a href="{% url "students_edit" student.id %}">{{ student.first_name }}</a></td>
 							<td>{{ student.ticket }}</td>

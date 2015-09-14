@@ -10,6 +10,8 @@ class Student(models.Model):
 		verbose_name = u"Студент"
 		verbose_name_plural = u"Студенти"
 
+		
+
 	first_name = models.CharField(
 		max_length = 256,
 		blank = False,

@@ -1,7 +1,8 @@
 
 {% block pag %}
-{% if students.has_other_pages %}
+{% if students.has_other_pages or groups.has_other_pages %}
 {% with order_by=request.GET.order_by reverse=request.GET.reverse %}
+				{% if students %}
                 <nav>
 				  <ul class="pagination">
 				    <li><a href="{% url 'home' %}?page=1&amp;order_by={{ order_by }}&amp;reverse={{ reverse }}">&laquo;</a></li>
@@ -13,6 +14,19 @@
 				    <li><a href="{% url 'home' %}?page={{ students.paginator.num_pages}}&amp;order_by={{ order_by }}&amp;reverse={{ reverse }}">&raquo;</a></li>
 				  </ul>
 				</nav>
+				{% elif groups %}
+				<nav>
+				  <ul class="pagination">
+				    <li><a href="{% url 'groups' %}?page=1&amp;order_by={{ order_by }}&amp;reverse={{ reverse }}">&laquo;</a></li>
+				    {% for p in groups.paginator.page_range %}
+				    <li {% if groups.number == p %}class="active"{% endif %}>
+				    	<a href="{% url 'groups' %}?page={{ p }}&amp;order_by={{ order_by }}&amp;reverse={{ reverse }}">{{ p }}</a>
+				    </li>
+				    {% endfor %}
+				    <li><a href="{% url 'groups' %}?page={{ groups.paginator.num_pages}}&amp;order_by={{ order_by }}&amp;reverse={{ reverse }}">&raquo;</a></li>
+				  </ul>
+				</nav>
+				{% endif %}
 {% endwith %}
 {% endif %}
 {% endblock pag %}

@@ -15,16 +15,12 @@
 					{% with order_by=request.GET.order_by reverse=request.GET.reverse %}
 					<thead>
 						<tr>
-							<th>
-							<a href="{% url "home" %}?order_by=number{% if order_by == 'number' and reverse != '1'%}&amp;reverse=1{% endif %}">№
-							{% if order_by == 'number' and reverse != '1' %}&uarr;
-							{% elif order_by == 'number' and reverse == '1' %}&darr;
-							{% endif %}</a>
-							</th>
+							<th>№</th>
 							<th>Фото</th>
 							<th>
 							<a href="{% url "home" %}?order_by=last_name{% if order_by == 'last_name' and reverse != '1' %}&amp;reverse=1{% endif %}">Прізвище 
 							{% if order_by == 'last_name' and reverse != '1' %}&uarr;
+							{% elif request.get_full_path == '/' %}&uarr;
 							{% elif order_by == 'last_name' and reverse == '1' %}&darr;
 							{% endif %}</a>
 							</th>

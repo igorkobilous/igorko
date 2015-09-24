@@ -1,14 +1,19 @@
 /* Global Style*/
-
+#header{
+	background: url('http://uconstructor.com/_ld/3/44534487.jpg');
+	background-repeat: repeat;
+	margin-bottom: 5px;
+}
 h1, h2, h3, h4, h5, h6{
 	font-weight: bold;
 }
+
 
 #group-selector>select{
 	width: 85%;
 	margin-top: 35px;
 	background-color: #ffffff;
-	border: 1px solid #cccccc; 
+	border: 1px solid #cccccc;
 	border-radius: 5px;
 	height: 30px;
 	line-height: 30px;
@@ -22,6 +27,8 @@ h1, h2, h3, h4, h5, h6{
 #footer{
 	border-top: 1px solid #DDDDDD;
 	padding-top: 10px;
+	background: url('http://uconstructor.com/_ld/3/44534487.jpg');
+	background-repeat: repeat;
 }
 
 #month>ul{
@@ -57,11 +64,11 @@ h1, h2, h3, h4, h5, h6{
 .gr_selector{
 	width: 48%;
 	background-color: #ffffff;
-	border: 1px solid #cccccc; 
+	border: 1px solid #cccccc;
 	border-radius: 5px;
 	height: 30px;
 	line-height: 30px;
-	color: #555555;	
+	color: #555555;
 }
 
 .edit_student{

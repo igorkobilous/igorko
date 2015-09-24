@@ -17,7 +17,7 @@ class Student(models.Model):
 		verbose_name = u"Ім'я")
 
 	last_name = models.CharField(
-		max_length = 256,	
+		max_length = 256,
 		blank = False,
 		verbose_name = u"Прізвище")
 

@@ -8,7 +8,7 @@
 				<!-- Add student Button-->
 				<a class="btn btn-primary" href="{% url "students_add" %}">Додати студента</a>
 
-				
+
 				<!-- Start students Listing -->
 				{% if students %}
 				<table class="table">
@@ -18,14 +18,14 @@
 							<th>№</th>
 							<th>Фото</th>
 							<th>
-							<a href="{% url "home" %}?order_by=last_name{% if order_by == 'last_name' and reverse != '1' %}&amp;reverse=1{% endif %}">Прізвище 
+							<a href="{% url "home" %}?order_by=last_name{% if order_by == 'last_name' and reverse != '1' %}&amp;reverse=1{% endif %}">Прізвище
 							{% if order_by == 'last_name' and reverse != '1' %}&uarr;
 							{% elif request.get_full_path == '/' %}&uarr;
 							{% elif order_by == 'last_name' and reverse == '1' %}&darr;
 							{% endif %}</a>
 							</th>
 							<th>
-							<a href="{% url "home" %}?order_by=first_name{% if order_by == 'first_name' and reverse != '1' %}&amp;reverse=1{% endif %}">Ім'я 
+							<a href="{% url "home" %}?order_by=first_name{% if order_by == 'first_name' and reverse != '1' %}&amp;reverse=1{% endif %}">Ім'я
 							{% if order_by == 'first_name' and reverse != '1' %}&uarr;
 							{% elif order_by == 'first_name' and reverse == '1' %}&darr;
 							{% endif %}</a>
@@ -65,7 +65,7 @@
 								    <li><a href="/journal/{{ student.id }}">Відвідування</a></li>
 								    <li><a href="{% url "students_delete" student.id %}">Видалити</a></li>
 								  </ul>
-								</div>	
+								</div>
 							</td>
 						</tr>
 						{% endfor%}
@@ -76,8 +76,5 @@
 				{% endif %}
 				{% include "students/pagination.html" %}
 				{%block pag%}{%endblock pag%}
-				
-			{% endblock content %}
-			
 
-				
+			{% endblock content %}

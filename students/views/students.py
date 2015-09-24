@@ -17,7 +17,6 @@ def students_list(request):
 		students = students.order_by(order_by)
 		if request.GET.get('reverse', '') == '1':
 			students = students.reverse()
-
 	#pagination
 	paginator = Paginator(students, 3)
 	page = request.GET.get('page')
@@ -30,9 +29,9 @@ def students_list(request):
 		#If page is out of range (e.g. 9999), deliver
 		#last page of results.
 		students = paginator.page(paginator.num_pages)
-		
+
 	return render(request, 'students/students_list.html',
-		{'students': students})
+		{'students':students})
 
 def students_add(request):
     return HttpResponse('<h1>Students Add Form</h1>')

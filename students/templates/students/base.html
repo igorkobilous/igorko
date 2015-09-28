@@ -58,9 +58,11 @@
 		<div class="row" id="content-columns">
       		<div class="col-xs-12" id="content-column">
 
-        		{% comment "Not used alert so far" %}
-        		<div class="alert alert-warning" role="alert">Status Update!</div>
-        		{% endcomment %}
+        		{% block status_message %}
+						{% if request.GET.status_message %}
+        		<div class="alert alert-warning" role="alert">{{ request.GET.status_message }}</div>
+						{% endif %}
+						{% endblock %}
 
         		<h2>{% block title %}{% endblock title %}</h2>
         		{% block content %}{% endblock content %}
@@ -74,7 +76,7 @@
 		<div class="row" id="footer">
 			<div class="col-xs-12">
 				{% include "students/footer.html" %}
-        		{%block footer%}{%endblock footer%}
+        {%block footer%}{%endblock footer%}
 			</div>
 		</div>
 		<!-- End Footer-->

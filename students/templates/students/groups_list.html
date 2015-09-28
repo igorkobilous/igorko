@@ -55,11 +55,12 @@
             {% endfor %}
           </tbody>
         </table>
+				{% include "students/pagination.html" %}
+        {%block pag%}{%endblock pag%}
         <!-- End Students Listing -->
         {% else %}
         <p>Поки немає груп у базі.</p>
         {% endif %}
 
-        {% include "students/pagination.html" %}
-        {%block pag%}{%endblock pag%}
+
 {% endblock content %}

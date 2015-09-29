@@ -6,6 +6,7 @@ from django.core.urlresolvers import reverse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from datetime import datetime
 
+
 from ..models import Student, Group
 
 #Views for students
@@ -87,8 +88,22 @@ def students_add(request):
 					data['student_group'] = groups[0]
 
 			photo = request.FILES.get('photo')
-			if photo:
-				data['photo']
+			if not photo:
+				errors['photo'] = u"Фото є обов'язковим полем"
+			else:
+				photo_format = {'jpeg':1, 'png':2, 'gif':3, 'jpg':4}
+				photo_name = request.FILES.get('photo').name
+				photo_data = ''
+				if request.FILES.get('photo').size >= 2000000:
+					errors['photo'] = u"Розмір файла не повинен перевищувати 2Мб"
+				else:
+					for i in photo_format:
+						if photo_name.find(i) != -1:
+							photo_data += '1'
+					if len(photo_data) > 0:
+						data['photo'] = photo
+					else:
+						errors['photo'] = u"Використовуйте фото форматом (.jpeg, .jpg, .gif, .png)"
 
 			if not errors:
 				#create student object

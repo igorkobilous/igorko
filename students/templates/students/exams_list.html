@@ -13,9 +13,9 @@
 						<tr>
 							<th>№</th>
 							<th>
-								<a href="{% url "exams" %}?order_by=subject{% if order_by == 'subject' and reverse != '1' %}&amp;reverse=1{% endif %}">Предмет
+								<a href="{% url "exams" %}?order_by=subject{% if order_by == 'subject' and reverse != '1' %}&amp;reverse=1{% elif order_by == '' and reverse != '1' %}&amp;reverse=1{% endif %}">Предмет
 								{% if order_by == 'subject' and reverse != '1' %}&uarr;
-								{% elif request.get_full_path == '/exams/' %}&uarr;
+								{% elif order_by == '' and reverse != '1' %}&uarr;
 								{% elif order_by == 'subject' and reverse == '1' %}&darr;
 								{% endif %}</a>
 							</th>

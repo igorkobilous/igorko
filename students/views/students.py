@@ -111,7 +111,7 @@ def students_add(request):
 				student.save()
 
 				#redirect user to students list
-				return HttpResponseRedirect(u'%s?status_message=Студента успішно додано!' % reverse('home'))
+				return HttpResponseRedirect(u'%s?status_message=Студента %s %s успішно додано!' % (reverse('home'),student.first_name, student.last_name))
 
 			else:
 				#render form with errors and previous user input

@@ -22,6 +22,15 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'xwr3&0e0rgs!8viv9w&-1k4r^=&1(869kamt5+=gfn6^^b@+j+'
 
+# SMTP
+ADMIN_EMAIL = 'admin@studentsdb.com'
+EMAIL_HOST = 'smtp.mandrillapp.com'
+EMAIL_PORT = '587'
+EMAIL_HOST_USER = 'ihorbilous@yandex.ru'
+EMAIL_HOST_PASSWORD = 'jWrlZd6YVHS6_sUb53bsTw'
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -114,3 +123,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, '..', 'media')
 #        "django.core.context_processors.request",
 #        "studentsdb.context_processors.students_proc",
 #        )
+
+#settings for SMPT server

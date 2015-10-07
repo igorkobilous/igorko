@@ -23,11 +23,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'xwr3&0e0rgs!8viv9w&-1k4r^=&1(869kamt5+=gfn6^^b@+j+'
 
 # SMTP
+# email settings
+# please, set here you smtp server details and your admin email
 ADMIN_EMAIL = 'admin@studentsdb.com'
 EMAIL_HOST = 'smtp.mandrillapp.com'
 EMAIL_PORT = '587'
-EMAIL_HOST_USER = 'ihorbilous@yandex.ru'
-EMAIL_HOST_PASSWORD = 'jWrlZd6YVHS6_sUb53bsTw'
+EMAIL_HOST_USER = 'ihorkobilous@gmail.com'
+EMAIL_HOST_PASSWORD = 'ROti-8rYRJTbSSfsEoqCQg'
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
 
@@ -47,6 +49,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms',
     'students',
 )
 
@@ -118,6 +121,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, '..', 'media')
+
+#crispy temlate
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 #TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
 #        "django.core.context_processors.request",

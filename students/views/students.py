@@ -7,6 +7,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views.generic import UpdateView
 from django.views.generic import DeleteView
 from django.forms import ModelForm
+from django.contrib import messages
 from datetime import datetime
 
 from crispy_forms.helper import FormHelper
@@ -42,6 +43,11 @@ def students_list(request):
 
 	return render(request, 'students/students_list.html',
 		{'students':students})
+
+class StudentCreateForm(ModelForm):
+	class Meta:
+		model = Student
+		fields = ['first_name', 'last_name', 'middle_name', 'birthday', 'photo', 'ticket', 'student_group', 'notes']
 
 def students_add(request):
 	#was form posted
@@ -95,7 +101,7 @@ def students_add(request):
 
 			photo = request.FILES.get('photo')
 			if not photo:
-				errors['photo'] = u"Фото є обов'язковим полем"
+				data['photo'] = photo
 			else:
 				photo_format = {'jpeg':1, 'png':2, 'gif':3, 'jpg':4}
 				photo_name = request.FILES.get('photo').name
@@ -115,18 +121,21 @@ def students_add(request):
 				#create student object
 				student = Student(**data)
 				student.save()
+				messages.warning(request, u"Cтудента %s %s успіхно додано!" % (student.first_name, student.last_name))
 
 				#redirect user to students list
-				return HttpResponseRedirect(u'%s?status_message=Студента %s %s успішно додано!' % (reverse('home'),student.first_name, student.last_name))
-
+				return HttpResponseRedirect(reverse('home'))
+                #messages.success(request, u"Студента %s %s успіхно додано!")
 			else:
 				#render form with errors and previous user input
+				messages.info(request, u"Будь ласка виправте наступні помилки!")
 				return render(request, 'students/students_add.html',
 					{'groups': Group.objects.all().order_by('title'),
 					'errors':errors})
 		elif request.POST.get('cancel_button') is not None:
 			#redirect to home page on cancel button
-			return HttpResponseRedirect(u'%s?status_message=Додавання студента скасовано!' % reverse('home'))
+			messages.warning(request, u"Додавання студента скасовано!")
+			return HttpResponseRedirect(reverse('home'))
 	else:
 		#initial form render
 		return render(request, 'students/students_add.html',

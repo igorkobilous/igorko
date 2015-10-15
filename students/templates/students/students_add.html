@@ -4,13 +4,13 @@
 
 			{% block title %}Додати студента{% endblock title %}
 
-			{% block status_message %}
 			{% if errors %}
 				<div class="alert alert-warning" role="alert">
-					Будь-ласка, виправте наступні помилки
+					{% for message in messages %}
+						<p{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}<p>
+					{% endfor %}
 				</div>
 			{% endif %}
-			{% endblock status_message %}
 			{% block content %}
 			<div class="row" id="add_students">
 			<form action="." method="post" enctype="multipart/form-data"

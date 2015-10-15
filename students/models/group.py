@@ -32,3 +32,5 @@ class Group(models.Model):
 	def __unicode__(self):
 		if self.leader:
 			return u"%s (%s %s)" % (self.title, self.leader.first_name, self.leader.last_name)
+		else:
+			return u"%s" % (self.title,)

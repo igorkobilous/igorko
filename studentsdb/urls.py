@@ -16,6 +16,7 @@ Including another URLconf
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from students.views.students import StudentUpdateView, StudentDeleteView
+from students.views.contact_admin import ContactFormView
 
 from .settings import MEDIA_ROOT, DEBUG
 
@@ -30,6 +31,7 @@ urlpatterns = patterns('',
     url(r'^students/(?P<pk>\d+)/delete/$',
         StudentDeleteView.as_view(),
         name='students_delete'),
+    
 
     # Groups urls
     url(r'^groups/$', 'students.views.groups.groups_list', name='groups'),
@@ -58,7 +60,7 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
 
     #Contact Admin form
-    url(r'^contact-admin/$', 'students.views.contact_admin.contact_admin',
+    url(r'^contact-admin/$', ContactFormView.as_view(),
             name = 'contact_admin'),
     )
 

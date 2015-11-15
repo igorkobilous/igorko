@@ -130,4 +130,6 @@ CRISPY_TEMPLATE_PACK = 'bootstrap3'
 #        "studentsdb.context_processors.students_proc",
 #        )
 
+
+
 #settings for SMPT server

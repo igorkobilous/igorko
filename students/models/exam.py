@@ -18,7 +18,7 @@ class Exam(models.Model):
 		verbose_name = u"Предмет")
 
 	date = models.DateTimeField(
-		blank = False,
+		blank = True,
 		verbose_name = u"Дата і час",)
 
 	lecturer = models.CharField(
@@ -28,7 +28,7 @@ class Exam(models.Model):
 
 	group = models.ForeignKey('Group',
 		verbose_name = u"Група",
-		blank = True,
+		blank = False,
 		null = True,
 		on_delete=models.PROTECT)
 

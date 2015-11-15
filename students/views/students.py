@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from django.shortcuts import render
+from django.shortcuts import redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -9,6 +10,8 @@ from django.views.generic import DeleteView
 from django.forms import ModelForm
 from django.contrib import messages
 from datetime import datetime
+from django.core.exceptions import ValidationError
+from django import forms
 
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit, Layout
@@ -44,10 +47,7 @@ def students_list(request):
 	return render(request, 'students/students_list.html',
 		{'students':students})
 
-class StudentCreateForm(ModelForm):
-	class Meta:
-		model = Student
-		fields = ['first_name', 'last_name', 'middle_name', 'birthday', 'photo', 'ticket', 'student_group', 'notes']
+
 
 def students_add(request):
 	#was form posted
@@ -104,13 +104,13 @@ def students_add(request):
 				data['photo'] = photo
 			else:
 				photo_format = {'jpeg':1, 'png':2, 'gif':3, 'jpg':4}
-				photo_name = request.FILES.get('photo').name
 				photo_data = ''
-				if request.FILES.get('photo').size >= 2000000:
+				if photo.size >= 2000000:
 					errors['photo'] = u"Розмір файла не повинен перевищувати 2Мб"
 				else:
+					#if photo.content_type in content_types:
 					for i in photo_format:
-						if photo_name.find(i) != -1:
+						if photo.name.find(i) != -1:
 							photo_data += '1'
 					if len(photo_data) > 0:
 						data['photo'] = photo
@@ -140,6 +140,7 @@ def students_add(request):
 		#initial form render
 		return render(request, 'students/students_add.html',
 			{'groups': Group.objects.all().order_by('title')})
+
 
 class StudentUpdateForm(ModelForm):
 	class Meta:
@@ -176,18 +177,36 @@ class StudentUpdateView(UpdateView):
 	template_name = 'students/students_edit.html'
 	form_class = StudentUpdateForm
 
+
 	def get_success_url(self):
-		return u'%s?status_message=Студента успішно збережено!' % reverse('home')
+		messages.warning(self.request, u"Студента успішно збережено")
+		return reverse('home')
+
+	def form_valid(self, form):
+		photo = form.cleaned_data['photo']
+		try:
+			if photo.size > 2000000:
+				#raise self.forms.ValidationError(_(u'Розмір фото не повинен перевищувати 2М', code='invalid'))
+				#form._errors[NON_FIELD_ERRORS] = form.error_class(['your error messages'])
+				messages.warning(self.request, u"абркадака")
+		except AttributeError:
+			pass
+			#form.errors['__all__'] = form.error_class([u'Розмір фото не повинен перевищувати 2Мб!'])
+		return super(StudentUpdateView, self).form_valid(form)
+
 
 	def post(self, request, *args, **kwargs):
 		if request.POST.get('cancel_button'):
-			return HttpResponseRedirect(u'%s?status_message=Редагування студента відмінено!' % reverse('home'))
+			messages.warning(self.request, u"Редагування студента скасовано")
+			return HttpResponseRedirect(reverse('home'))
 		else:
 			return super(StudentUpdateView, self).post(request, *args, **kwargs)
 
+
 class StudentDeleteView(DeleteView):
 	model = Student
-	template_name = 'students/students_confirm_delete.html'
+	template_name = 'students/confirm_delete.html'
 
 	def get_success_url(self):
-		return u'%s?status_message=Студента успішно видалено!' % reverse('home')
+		messages.warning(self.request, u"Студента успішно виделано!")
+		return reverse('home')

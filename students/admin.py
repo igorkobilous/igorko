@@ -29,7 +29,50 @@ class StudentAdmin(admin.ModelAdmin):
 
     def view_on_site(self, obj):
         return reverse('students_edit', kwargs={'pk': obj.id})
+
+class GroupForAdmin(ModelForm):
+    #pass
+    def clean_title(self):
+        """try:
+            groups = Group.objects.get(title=self.instance)
+        except Group.DoesNotExist:
+            groups = None"""
+        groups = Group.objects.filter(title=self.instance.title)
+        if len(groups)>0:
+            raise ValidationError(u'Така група вже існує. Виберіть іншу назву', code='invalid')
+        return self.cleaned_data['title']
+        #import pdb;pdb.set_trace()
+
+
+class GroupAdmin(admin.ModelAdmin):
+    list_display = ['title', 'leader']
+    list_display_links = ['title']
+    list_editable = ['leader']
+    ordering = ['title']
+    list_per_page = 3
+    search_fields = ['title', 'leader__last_name', 'notes']
+    form = GroupForAdmin
+
+    def view_on_site(self, obj):
+        return reverse('groups_edit', kwargs={'pk': obj.id})
+
+class ExamForAdmin(ModelForm):
+    pass
+
+class ExamAdmin(admin.ModelAdmin):
+    list_display = ['subject', 'date', 'lecturer', 'group']
+    list_display_links = ['subject']
+    list_editable = ['date', 'group']
+    list_filter = ['group', 'subject']
+    ordering = ['subject']
+    list_per_page = 5
+    search_fields = ['subject', 'lecturer', 'group__title', 'notes']
+    form = ExamForAdmin
+
+    def view_on_site(self, obj):
+        return reverse('exams_edit', kwargs={'pk':obj.id})
+
 # Register your models here.
 admin.site.register(Student, StudentAdmin)
-admin.site.register(Group)
-admin.site.register(Exam)
+admin.site.register(Group, GroupAdmin)
+admin.site.register(Exam, ExamAdmin)

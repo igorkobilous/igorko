@@ -11,50 +11,15 @@
   </div>
 {% endif %}
 {% block content %}
-Редагування групи {{pk}}
-<form action="{% url "groups_edit" pk %}" method="post"
+<form action="{% url "groups_edit" object.id %}" method="post"
       enctype="multipart/form-data">
-      {% csrf_token %}
-      <div class="form-group {% if errors.title %}has-error{% endif %}">
-        <label for="title" class="col-sm-2 control-label">Назва групи*</label>
-        <div class="col-sm-10">
-          <input type="text" value="{{group.title}}"
-                 name="title" id="title"
-                 class="form-control"
-                 placeholder="Введіть назву групи" />
-          <span class="help-block">{{ errors.title }}</span>
-        </div>
-      </div>
-      <div class="form-group {% if errors.leader %}has-error{% endif %}">
-        <label for="leader" class="col-sm-2 control-label">Староста</label>
-        <div class="col-sm-10">
-          <select name="leader" id="leader" class="form-control">
-              <option value="{{leader.id}}">{{leader}}, id={{leader.id}}</option>
-              <option value="">------------</option>
-              {%  for student in students%}
-                <option value="{{ student.id }}" {% if student.id == request.POST.leader|add:0 %}
-                        selected="1"{% endif %}>{{student.last_name}} {{student.first_name}}, id={{student.id}}</option>
-              {% endfor %}
-          </select>
-          <span class="help-block">{{ errors.leader }}</span>
-        </div>
-      </div>
-      <div class="form-group {% if errors.notes %}has-error{% endif %}">
-        <label for="notes" class="col-sm-2 control-label">Додаткові Нотатки</label>
-        <div class="col-sm-10">
-          <textarea name="notes" id="notes" class="form-control"></textarea>
-          <span class="help-block">{{ errors.notes }}</span>
-        </div>
-      </div>
-      <div class="form-group">
-        <label class="col-sm-2 control-label"></label>
-        <div class="col-sm-10">
-          <input type="submit" value="Зберегти" name="add_button"
-               class="btn btn-primary" />
-          <button type="submit" name="cancel_button"
-                class="btn btn-link">Скасувати</button>
-        </div>
-      </div>
+{% csrf_token %}
 
+{{ form.as_p }}
+
+  <input type="submit" value="Зберегти" name="add_button"
+         class="btn btn-primary" />
+  <button type="submit" name="cancel_button" value="Скасувати"
+         class="btn btn-link">Скасувати</button>
 </form>
 {% endblock content %}

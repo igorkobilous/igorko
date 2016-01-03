@@ -1,0 +1,24 @@
+{% extends "students/base.html" %}
+{% load static from staticfiles %}
+
+{% block meta_title %}Видалення{% endblock meta_title %}
+{% block title %}Видалити{% endblock title %}
+
+{% block content %}
+
+<form {% if "/exams/" in request.path %}action="{% url "exams_delete" object.id %}"
+			{%elif "/groups/" in request.path %}action="{% url "groups_delete" object.id %}"
+			{%elif "/students/" in request.path %}action="{% url "exams_delete" object.id %}"
+			{% endif%}
+			 method="post">
+	{% csrf_token %}
+	<p>Ви дійсно хочете видалити: {% if "/exams/" in request.path %} Екзамен
+		 														{% elif "/groups/" in request.path %} Групу
+																{% elif "/students/" in request.path %}Студента
+																{% endif %}
+																"{{ object }}"?</p>
+	<input type="submit" value="Так" name="delete_button"
+	 			 class="btn btn-danger"/><br/><br/>
+</form>
+
+{% endblock content %}

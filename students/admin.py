@@ -33,12 +33,8 @@ class StudentAdmin(admin.ModelAdmin):
 class GroupForAdmin(ModelForm):
     #pass
     def clean_title(self):
-        """try:
-            groups = Group.objects.get(title=self.instance)
-        except Group.DoesNotExist:
-            groups = None"""
-        groups = Group.objects.filter(title=self.instance.title)
-        if len(groups)>0:
+        groups = Group.objects.filter(title=self.cleaned_data['title'])
+        if len(groups)>0 and self.instance != groups[0]:
             raise ValidationError(u'Така група вже існує. Виберіть іншу назву', code='invalid')
         return self.cleaned_data['title']
         #import pdb;pdb.set_trace()

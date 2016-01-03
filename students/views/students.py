@@ -182,17 +182,6 @@ class StudentUpdateView(UpdateView):
 		messages.warning(self.request, u"Студента успішно збережено")
 		return reverse('home')
 
-	def form_valid(self, form):
-		photo = form.cleaned_data['photo']
-		try:
-			if photo.size > 2000000:
-				#raise self.forms.ValidationError(_(u'Розмір фото не повинен перевищувати 2М', code='invalid'))
-				#form._errors[NON_FIELD_ERRORS] = form.error_class(['your error messages'])
-				messages.warning(self.request, u"абркадака")
-		except AttributeError:
-			pass
-			#form.errors['__all__'] = form.error_class([u'Розмір фото не повинен перевищувати 2Мб!'])
-		return super(StudentUpdateView, self).form_valid(form)
 
 
 	def post(self, request, *args, **kwargs):

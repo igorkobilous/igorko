@@ -1,0 +1,26 @@
+{% extends "students/base.html" %}
+{% load static from staticfiles %}
+
+{% block meta_title %}Масове видалення{% endblock meta_title %}
+{% block title %}Видалити масово{% endblock title %}
+
+{% block content %}
+
+<form action="{% url "mass_students_delete" %}" method="post">
+{% csrf_token %}
+<p>Вы действительно хотите удалить следующих студентов: </p>
+    <ul>
+        {%for object in objects%}
+        <li><img class="img-circle" height="30" width="30" {% if object.photo %} src={{ object.photo.url }}>{% else %}    src={% static 'img/default_user.png' %}>{% endif %}  {{object.last_name}} {{object.first_name}}</li>
+        <input type = 'hidden' name = 'values' value = '{{object.id}}'></input>
+        {% endfor %}
+    </ul>
+    <input type="submit" value="Подтвердить" name="delete_button" class="btn btn-danger" />
+    <a class='btn ' href="{% url 'home' %}?status_message=Удаление студента отменено" name = 'cancel'>Отменить</a>
+<br /><br />
+</form>
+{%else%}
+<p> Студенты не были выбраны <p>
+{%endif%}
+
+{% endblock content %}

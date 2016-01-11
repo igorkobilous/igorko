@@ -10,7 +10,7 @@
 
 				<!-- Start students Listing -->
 				{% if students %}
-				<table class="table">
+				<table class="table table-striped table-hover">
 					{% with order_by=request.GET.order_by reverse=request.GET.reverse %}
 					<thead>
 						<tr>
@@ -42,7 +42,13 @@
 					<tbody>
 						{% for student in students %}
 						<tr class="evan">
-							<td>{{ forloop.counter }}</td>
+							<td>
+								{% if is_paginated %}
+									{{ page_obj.start_index|add:forloop.counter|add:"-1" }}
+								{% else %}
+									{{ forloop.counter }}
+								{% endif %}
+							</td>
 							<td>
 							{% if student.photo %}
 					          <img class="img-circle" src="{{ student.photo.url }}" height="30"
@@ -70,8 +76,10 @@
 						{% endfor%}
 					</tbody>
 				</table>
-				{% include "students/pagination.html" %}
-				{%block pag%}{%endblock pag%}
+
+				{% with object_list=students %}
+					{% include "students/paginated.html" %}
+				{% endwith %}
 				{% else %}
 				<p>Поки немає студентів у базі</p>
 				{% endif %}

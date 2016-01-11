@@ -5,6 +5,7 @@ from django.shortcuts import redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from ..util import paginate
 from django.views.generic import UpdateView
 from django.views.generic import DeleteView
 from django.forms import ModelForm
@@ -12,6 +13,7 @@ from django.contrib import messages
 from datetime import datetime
 from django.core.exceptions import ValidationError
 from django import forms
+from PIL import Image
 
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit, Layout
@@ -32,7 +34,7 @@ def students_list(request):
 			students = students.reverse()
 
 	#pagination
-	paginator = Paginator(students, 3)
+	"""paginator = Paginator(students, 3)
 	page = request.GET.get('page')
 	try:
 		students = paginator.page(page)
@@ -42,10 +44,11 @@ def students_list(request):
 	except EmptyPage:
 		#If page is out of range (e.g. 9999), deliver
 		#last page of results.
-		students = paginator.page(paginator.num_pages)
+		students = paginator.page(paginator.num_pages)"""
+	context = paginate(students, 3, request, {},
+        var_name='students')
 
-	return render(request, 'students/students_list.html',
-		{'students':students})
+	return render(request, 'students/students_list.html', context)
 
 
 
@@ -170,6 +173,15 @@ class StudentUpdateForm(ModelForm):
             Submit('add_button', u'Зберегти', css_class="btn btn-primary"),
             Submit('cancel_button', u'Скасувати', css_class="btn btn-link"),)
 
+	def clean_photo(self):
+		image = self.cleaned_data.get('photo', False)
+		if image:
+			img = Image.open(image)
+
+		if len(image) > (2*1024*1024):
+			raise ValidationError(u'Розмір фото не повинен перевищувати 2Мб', code='invalid')
+		else:
+			return self.cleaned_data['photo']
 
 
 class StudentUpdateView(UpdateView):

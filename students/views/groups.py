@@ -15,6 +15,8 @@ from crispy_forms.layout import Submit,Button, HTML, Layout
 from crispy_forms.bootstrap import FormActions
 
 from ..models import Student, Group
+from ..util import paginate
+
 
 
 #Views for groups
@@ -30,20 +32,11 @@ def groups_list(request):
 			groups = groups.reverse()
 
 
- # paginate groups
-    paginator = Paginator(groups, 2)
-    page = request.GET.get('page')
-    try:
-        groups = paginator.page(page)
-    except PageNotAnInteger:
-        # If page is not an integer, deliver first page.
-        groups = paginator.page(1)
-    except EmptyPage:
-        # If page is out of range (e.g. 9999), deliver last page of results.
-        groups = paginator.page(paginator.num_pages)
+    context = paginate(groups, 3, request, {},
+        var_name='groups')
 
     return render(request, 'students/groups_list.html',
-        {'groups': groups})
+        context)
 
 
 

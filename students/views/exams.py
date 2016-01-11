@@ -13,6 +13,8 @@ from crispy_forms.layout import Submit,HTML, Layout
 from crispy_forms.bootstrap import FormActions
 
 from ..models import Exam
+from ..util import paginate
+
 
 #Views for exams
 
@@ -28,19 +30,13 @@ def exams_list(request):
 			exams = exams.reverse()
 
     # paginate groups
-    paginator = Paginator(exams, 5)
-    page = request.GET.get('page')
-    try:
-        exams = paginator.page(page)
-    except PageNotAnInteger:
-        # If page is not an integer, deliver first page.
-        exams = paginator.page(1)
-    except EmptyPage:
-        # If page is out of range (e.g. 9999), deliver last page of results.
-        exams = paginator.page(paginator.num_pages)
+    context = paginate(exams, 3, request, {},
+        var_name='exams')
 
     return render(request, 'students/exams_list.html',
-		{'exams':exams})
+		context)
+
+#Exams Update and Create Form
 
 class ExamCreateForm(ModelForm):
     class Meta:
@@ -96,6 +92,8 @@ class ExamUpdateForm(ModelForm):
 		self.helper.layout[-1] = FormActions('notes',
             Submit('add_button', u'Зберегти', css_class="btn btn-primary"),
             Submit('cancel_button', u'Скасувати', css_class="btn btn-link"),)
+
+#Exams Update and Create Views
 
 class ExamCreateView(CreateView):
     model = Exam

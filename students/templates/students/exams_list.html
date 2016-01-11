@@ -7,7 +7,7 @@
 				<a class="btn btn-primary" href="{% url "exams_add" %}">Додати екзамен</a>
 				<!-- Start students Listing -->
 				{% if exams %}
-				<table class="table">
+				<table class="table table-striped table-hover">
 					{% with order_by=request.GET.order_by reverse=request.GET.reverse %}
 					<thead>
 						<tr>
@@ -44,7 +44,13 @@
 					<tbody>
 						{% for exam in exams %}
 						<tr class="evan">
-							<td>{{ forloop.counter }}</td>
+							<td>
+								{% if is_paginated %}
+									{{ page_obj.start_index|add:forloop.counter|add:"-1" }}
+								{% else %}
+									{{ forloop.counter }}
+								{% endif %}
+							</td>
 							<td><a href="{% url "exams_edit" exam.id %}">{{ exam.subject }}</a></td>
 							<td>{{ exam.date }}</a></td>
 							<td>{{ exam.lecturer }}</a></td>
@@ -63,21 +69,9 @@
 						{% endfor %}
 					</tbody>
 				</table>
-				{% if exams.has_other_pages %}
-				{% with order_by=request.GET.order_by reverse=request.GET.reverse %}
-								<nav>
-									<ul class="pagination">
-										<li><a href="{% url 'exams' %}?page=1&amp;order_by={{ order_by }}&amp;reverse={{ reverse }}">&laquo;</a></li>
-										{% for p in exams.paginator.page_range %}
-										<li {% if exams.number == p %}class="active"{% endif %}>
-											<a href="{% url 'exams' %}?page={{ p }}&amp;order_by={{ order_by }}&amp;reverse={{ reverse }}">{{ p }}</a>
-										</li>
-										{% endfor %}
-										<li><a href="{% url 'exams' %}?page={{ exams.paginator.num_pages}}&amp;order_by={{ order_by }}&amp;reverse={{ reverse }}">&raquo;</a></li>
-									</ul>
-								</nav>
+				{% with object_list=exams %}
+					{% include "students/paginated.html" %}
 				{% endwith %}
-				{% endif %}
 				{% else %}
 				<p>Поки немає екзаменів у базі</p>
 				{% endif %}

@@ -19,6 +19,7 @@ from students.views.students import StudentUpdateView, StudentDeleteView
 from students.views.groups import GroupUpdateView, GroupCreateView, GroupDeleteView
 from students.views.exams import ExamCreateView, ExamUpdateView, ExamDeleteView
 from students.views.contact_admin import ContactFormView
+from students.views.journal import JournalView
 from students.models import Group
 
 from .settings import MEDIA_ROOT, DEBUG
@@ -49,7 +50,7 @@ urlpatterns = patterns('',
         name='groups_delete'),
 
     #Journal urls
-    url(r'journal/$', 'students.views.journal.journal_list', name='journal'),
+    url(r'journal/$', JournalView.as_view(), name='journal'),
 
     #Exams urls
     url(r'^exams/$', 'students.views.exams.exams_list',  name='exams'),

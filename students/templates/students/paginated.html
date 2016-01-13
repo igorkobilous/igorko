@@ -5,7 +5,7 @@
 			<li>
 				<a href="?page=1{%if order_by %}&amp;order_by={{ order_by }}{%endif %}
 				{% if reverse %}&amp;reverse={{ reverse }}{% endif %}
-				{% if cur_month %}&amp;month={{ prev_month }}{% endif %}">&laquo;</a>
+				{% if cur_month %}&amp;month={{ cur_month }}{% endif %}">&laquo;</a>
 			</li>
 			{% for p in paginator.page_range %}
 			<li {% if object_list.number == p %}class="active"{% endif %}>
@@ -17,7 +17,7 @@
 			<li>
 				<a href="?page={{ paginator.num_pages }}{%if order_by %}&amp;order_by={{ order_by }}{% endif %}
 				{% if reverse %}&amp;reverse={{ reverse }}{% endif %}
-				{% if cur_month %}&amp;month={{ next_month }}{% endif %}">&raquo;</a>
+				{% if cur_month %}&amp;month={{ cur_month }}{% endif %}">&raquo;</a>
 			</li>
 		</ul>
 	</nav>

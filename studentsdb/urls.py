@@ -50,7 +50,7 @@ urlpatterns = patterns('',
         name='groups_delete'),
 
     #Journal urls
-    url(r'journal/$', JournalView.as_view(), name='journal'),
+    url(r'journal/(?P<pk>\d+)?/?$', JournalView.as_view(), name='journal'),
 
     #Exams urls
     url(r'^exams/$', 'students.views.exams.exams_list',  name='exams'),

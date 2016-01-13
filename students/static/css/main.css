@@ -96,3 +96,7 @@ select,
 input {
 max-width: 300px;
 }
+
+#ajax-progress-indicator {
+	display: none;
+}

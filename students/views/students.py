@@ -5,7 +5,6 @@ from django.shortcuts import redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from ..util import paginate
 from django.views.generic import UpdateView
 from django.views.generic import DeleteView
 from django.forms import ModelForm
@@ -20,11 +19,17 @@ from crispy_forms.layout import Submit, Layout
 from crispy_forms.bootstrap import FormActions
 
 from ..models import Student, Group
+from ..util import paginate, get_current_group
 
 #Views for students
 
 def students_list(request):
-	students = Student.objects.all()
+	#check if we need to show only one group of students
+	current_group = get_current_group(request)
+	if current_group:
+		students = Student.objects.filter(student_group=current_group)
+	else:
+		students = Student.objects.all()
 
 	#try to order students list
 	order_by = request.GET.get('order_by', '')
@@ -34,17 +39,6 @@ def students_list(request):
 			students = students.reverse()
 
 	#pagination
-	"""paginator = Paginator(students, 3)
-	page = request.GET.get('page')
-	try:
-		students = paginator.page(page)
-	except PageNotAnInteger:
-		#If page is not an integer, deliver first page.
-		students = paginator.page(1)
-	except EmptyPage:
-		#If page is out of range (e.g. 9999), deliver
-		#last page of results.
-		students = paginator.page(paginator.num_pages)"""
 	context = paginate(students, 3, request, {},
         var_name='students')
 

@@ -49,7 +49,7 @@
 						<div class="form-group {% if errors.birthday %}has-error{% endif %}">
 							<label for="birthday" class="col-sm-2 control-label">Дата Народження*</label>
 							<div class="col-sm-10">
-								<input type="text" value="{{ request.POST.birthday }}"
+								<input class="dateinput form-control" type="text" value="{{ request.POST.birthday }}"
 							         name="birthday" id="birthday"
 						        	 placeholder="[рік]-[місяць]-[день]"
 											 class="form-control"/>

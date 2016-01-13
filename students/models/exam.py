@@ -17,9 +17,9 @@ class Exam(models.Model):
 		blank = False,
 		verbose_name = u"Предмет")
 
-	date = models.DateTimeField(
+	date = models.DateField(
 		blank = True,
-		verbose_name = u"Дата і час",)
+		verbose_name = u"Дата",)
 
 	lecturer = models.CharField(
 		max_length = 256,

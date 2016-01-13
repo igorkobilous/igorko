@@ -20,7 +20,7 @@
 								{% endif %}</a>
 							</th>
 							<th>
-								<a href="{% url "exams" %}?order_by=date{% if order_by == 'date' and reverse != '1' %}&amp;reverse=1{% endif %}">Дата і час проведення
+								<a href="{% url "exams" %}?order_by=date{% if order_by == 'date' and reverse != '1' %}&amp;reverse=1{% endif %}">Дата проведення
 								{% if order_by == 'date' and reverse != '1' %}&uarr;
 								{% elif order_by == 'date' and reverse == '1' %}&darr;
 								{% endif %}</a>

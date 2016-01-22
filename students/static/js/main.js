@@ -1,3 +1,4 @@
+//Student
 function initJournal() {
 	var indicator = $('#ajax-progress-indicator');
 
@@ -79,16 +80,20 @@ function initEditStudentPage() {
 			modal.find('.modal-body').html(form);
 
 			initEditStudentForm(form, modal);
-
-			modal.modal({
-				'keyboard': false,
-				'backdrop': false,
-				'show': true
+			
+			$('#spinner').show();
+			$('#spinner').hide(function(){
+				modal.modal({
+					'keyboard': false,
+					'backdrop': false,
+					'show': true
+				});
 			});
 
 			// setup and show modal window finally
         
 			},
+
 			'error': function(){
 				alert('Помилка на сервері. Спробуйте будь-ласка пізніше.');
 				return false
@@ -98,6 +103,7 @@ function initEditStudentPage() {
 		return false;
 	});
 }
+
 
 function initEditStudentForm(form, modal) {
 	// attach datepicker
@@ -138,9 +144,105 @@ function initEditStudentForm(form, modal) {
 	})
 }
 
+//Groups
+function initEditGroupPage(){
+	$('a.group-edit-form-link').click(function(event){
+		var link = $(this);
+		$.ajax({
+			'url': link.attr('href'),
+			'dataType': 'html',
+			'type': 'get',
+			'success': function(data, status, xhr){
+				//check if we got succesfull response from the server
+				if (status != 'success'){
+					alert('Помилка на сервері. Спробуйте будь-ласка пізніше.');
+					return false;
+				}
+			//update modal window with arrived content from the server
+			var modal = $('#myModal'),
+				html = $(data), form = html.find('#content-column form');
+			modal.find('.modal-title').html(html.find('#content-column h2').text());
+			modal.find('.modal-body').html(form);
+
+			//init our edit form
+			initEditGroupForm(form, modal);
+			//setup and show modal window finally
+			modal.modal({
+				'keyboard': false,
+				'backdrop': false,
+				'show': true
+			});
+			},
+			'error': function(){
+				alert('Помилка на сервері. Спробуйте будь ласка пізніше.');
+				return false;
+			}
+		});
+		return false;
+	});
+}
+function initEditGroupForm(form, modal){
+	//close modal window on Cancel click
+	form.find('input[name="cancel_button"]').click(function(event){
+		modal.modal('hide');
+		return false;
+	});
+	form.ajaxForm({
+		'dataType': 'html',
+		'error': function(){
+			alert('Помилка на сервері. Спробуйте будь-ласка пізніше.');
+			return false;
+		},
+		'success': function(data, status, xhr){
+			var html = $(data), newform = html.find('#content-column form');
+
+			//copy aler to modal window
+			modal.find('.modal-body').html(html.find('.alert'));
+			//copy form to modal if we found it in server response
+			if (newform.length > 0){
+				modal.find('.modal-body').append(newform);
+				initEditGroupForm(newform, modal);
+			}else{
+				setTimeout(function(){location.reload(true);}, 500);
+			}
+		}
+	});
+}
+
+function pageWithoutRebooting(){
+	$('a.newurl').click(function(event){
+		var link = $(this);
+		$.ajax({
+			'url': link.attr('href'),
+			'dataType': 'html',
+			'type': 'get',
+			'ajaxStart': function(){$body.addClass('loading');},
+			'ajaxStop': function(){$body.removeClass('loading');},
+			'success': function(data, status, xhr){
+				//check if we got succesfull response from the server
+				if (status != 'success'){
+					alert('Помилка на сервері. Спробуйте будь-ласка пізніше.');
+					return false;
+				}
+			//update modal window with arrived content from the server
+			var html = $(data), page = $(html.find('.content')), body = $('.content');
+			body.html(page);
+			},
+			'error': function(){
+				alert('Помилка на сервері. Спробуйте будь ласка пізніше.');
+				return false;
+			}
+		});
+		return false;
+	});
+}
+
+//All ready
 $(document).ready(function(){
 	initJournal();
 	initGroupSelector();
 	initDateFields();
+
 	initEditStudentPage();
+	initEditGroupPage();
 });

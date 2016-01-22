@@ -8,7 +8,7 @@
 
 <form {% if "/exams/" in request.path %}action="{% url "exams_delete" object.id %}"
 			{%elif "/groups/" in request.path %}action="{% url "groups_delete" object.id %}"
-			{%elif "/students/" in request.path %}action="{% url "exams_delete" object.id %}"
+			{%elif "/students/" in request.path %}action="{% url "students_delete" object.id %}"
 			{% endif%}
 			 method="post">
 	{% csrf_token %}

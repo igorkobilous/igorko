@@ -172,10 +172,10 @@ class StudentUpdateForm(ModelForm):
 		if image:
 			img = Image.open(image)
 
-		if len(image) > (2*1024*1024):
-			raise ValidationError(u'Розмір фото не повинен перевищувати 2Мб', code='invalid')
-		else:
-			return self.cleaned_data['photo']
+			if len(image) > (2*1024*1024):
+				raise ValidationError(u'Розмір фото не повинен перевищувати 2Мб', code='invalid')
+			else:
+				return self.cleaned_data['photo']
 
 
 class StudentUpdateView(UpdateView):

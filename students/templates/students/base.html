@@ -48,11 +48,11 @@
 		<div class="row" id="sub-header">
 			<div class="col-xs-12">
 				<ul class="nav nav-tabs">
-				  <li role="presentation" {% if request.path == '/' %}class="active"{% endif %}><a href="{% url "home" %}">Студенти</a></li>
-				  <li role="presentation" {% if '/journal' in request.path  %}class="active"{% endif %}><a href="{% url "journal" %}">Відвідування</a></li>
-				  <li role="presentation" {% if  '/groups' in request.path %}class="active"{% endif %}><a href="{% url "groups" %}">Групи</a></li>
-					<li role="presentation" {% if  '/exams' in request.path %}class="active"{% endif %}><a href="{% url "exams" %}">Екзамени</a></li>
-					<li role="presentation" {% if '/contact-admin' in request.path %}class="active"{% endif %}><a href="{% url "contact_admin" %}">Контакт</a></li>
+				  <li role="presentation" {% if request.path == '/' %}class="active"{% endif %}><a href="{% url "home" %}" class="newurl">Студенти</a></li>
+				  <li role="presentation" {% if '/journal' in request.path  %}class="active"{% endif %}><a href="{% url "journal" %}" class="newurl">Відвідування</a></li>
+				  <li role="presentation" {% if  '/groups' in request.path %}class="active"{% endif %}><a href="{% url "groups" %}" class="newurl">Групи</a></li>
+					<li role="presentation" {% if  '/exams' in request.path %}class="active"{% endif %}><a href="{% url "exams" %}" class="newurl">Екзамени</a></li>
+					<li role="presentation" {% if '/contact-admin' in request.path %}class="active"{% endif %}><a href="{% url "contact_admin" %}" class="newurl">Контакт</a></li>
 				</ul>
 			</div>
 		</div>
@@ -60,7 +60,7 @@
 
 		<!-- Start Main page Content-->
 		<div class="row" id="content-columns">
-      		<div class="col-xs-12" id="content-column">
+      		<div class="col-xs-12 content" id="content-column">
 
         		<!--{% block status_message %}
 						{% if request.GET.status_message %}

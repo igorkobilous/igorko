@@ -13,6 +13,8 @@ from studentsdb.settings import ADMIN_EMAIL
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
 
+import logging
+
 class ContactForm(forms.Form):
 
     def __init__(self, *args, **kwargs):
@@ -62,6 +64,8 @@ class ContactFormView(FormView):
         except Exception:
             messages.warning(self.request, u"Під час відправки листа виникла непередбачувана\
             помилка. Спробуйте скористатися дано. формою пізніше." )
+            logger = logging.getLogger(__name__)
+            logger.exception(message)
         else:
             messages.warning(self.request, u"Повідомлення успішно надіслано!")
         return super(ContactFormView, self).form_valid(form)

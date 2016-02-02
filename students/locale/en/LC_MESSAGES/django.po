@@ -1,0 +1,215 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-02-02 20:13+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: templates/students/base.html:9 templates/students/base.html.py:31
+#: templates/students/footer.html:3
+msgid "Students Accounting Service"
+msgstr ""
+
+#: templates/students/base.html:11
+msgid "App to manage students database"
+msgstr ""
+
+#: templates/students/base.html:36
+msgid "Group:"
+msgstr ""
+
+#: templates/students/base.html:38
+msgid "All Students"
+msgstr ""
+
+#: templates/students/base.html:52 templates/students/students_list.html:5
+msgid "Students"
+msgstr ""
+
+#: templates/students/base.html:53 templates/students/journal.html:6
+#: templates/students/journal.html.py:7
+#: templates/students/students_list.html:76
+msgid "Journal"
+msgstr ""
+
+#: templates/students/base.html:54 templates/students/groups_list.html:6
+msgid "Groups"
+msgstr ""
+
+#: templates/students/base.html:55 templates/students/exams_list.html:5
+msgid "Exams"
+msgstr ""
+
+#: templates/students/base.html:56
+msgid "Contact"
+msgstr ""
+
+#: templates/students/confirm_delete.html:5
+#: templates/students/confirm_delete.html:6
+#: templates/students/exams_list.html:66
+#: templates/students/groups_list.html:59
+#: templates/students/students_list.html:77
+msgid "Delete"
+msgstr ""
+
+#: templates/students/confirm_delete.html:17
+#, python-format
+msgid "Do you really want to delete group: \"%(object)s\"?"
+msgstr ""
+
+#: templates/students/confirm_delete.html:19
+#, python-format
+msgid "Do you really want to delete student: \"%(object)s\"?"
+msgstr ""
+
+#: templates/students/confirm_delete.html:21
+#, python-format
+msgid "Do you really want to delete exam: \"%(object)s\"?"
+msgstr ""
+
+#: templates/students/confirm_delete.html:23
+msgid "Yes"
+msgstr ""
+
+#: templates/students/confirm_delete.html:29
+msgid "No"
+msgstr ""
+
+#: templates/students/exams_list.html:6
+msgid "Exams List"
+msgstr ""
+
+#: templates/students/exams_list.html:9
+msgid "Add Exam"
+msgstr ""
+
+#: templates/students/exams_list.html:18
+msgid "Subject"
+msgstr ""
+
+#: templates/students/exams_list.html:25
+msgid "Date"
+msgstr ""
+
+#: templates/students/exams_list.html:31
+msgid "Lecturer"
+msgstr ""
+
+#: templates/students/exams_list.html:37
+msgid "Group"
+msgstr ""
+
+#: templates/students/exams_list.html:42
+#: templates/students/groups_list.html:34
+#: templates/students/students_list.html:44
+msgid "Actions"
+msgstr ""
+
+#: templates/students/exams_list.html:62
+#: templates/students/groups_list.html:54
+#: templates/students/students_list.html:72
+msgid "Action"
+msgstr ""
+
+#: templates/students/exams_list.html:65
+#: templates/students/groups_list.html:58 templates/students/journal.html:57
+#: templates/students/students_list.html:75
+msgid "Edit"
+msgstr ""
+
+#: templates/students/exams_list.html:78
+msgid "No exams in the database"
+msgstr ""
+
+#: templates/students/groups_list.html:8
+msgid "Groups List"
+msgstr ""
+
+#: templates/students/groups_list.html:14
+msgid "Add Group"
+msgstr ""
+
+#: templates/students/groups_list.html:22
+msgid "Title"
+msgstr ""
+
+#: templates/students/groups_list.html:29
+msgid "Leader"
+msgstr ""
+
+#: templates/students/groups_list.html:72
+msgid "No groups in the database"
+msgstr ""
+
+#: templates/students/journal.html:13
+msgid "While no student in the database. Please,"
+msgstr ""
+
+#: templates/students/journal.html:14
+msgid "add"
+msgstr ""
+
+#: templates/students/journal.html:14
+msgid "first."
+msgstr ""
+
+#: templates/students/journal.html:18
+msgid ""
+"Changes are automatically saved in a log each click in a cell of the table."
+msgstr ""
+
+#: templates/students/journal.html:19
+msgid "There saving ..."
+msgstr ""
+
+#: templates/students/journal.html:23
+msgid "Previous month"
+msgstr ""
+
+#: templates/students/journal.html:27
+msgid "Next month"
+msgstr ""
+
+#: templates/students/journal.html:34
+msgid "Student"
+msgstr ""
+
+#: templates/students/students_list.html:7
+msgid "Students List"
+msgstr ""
+
+#: templates/students/students_list.html:11
+msgid "Add Student"
+msgstr ""
+
+#: templates/students/students_list.html:24
+msgid "Photo"
+msgstr ""
+
+#: templates/students/students_list.html:26
+msgid "Last Name"
+msgstr ""
+
+#: templates/students/students_list.html:33
+msgid "First Name"
+msgstr ""
+
+#: templates/students/students_list.html:39
+msgid "Ticket #"
+msgstr ""
+
+#: templates/students/students_list.html:90
+msgid "No students in the database"
+msgstr ""

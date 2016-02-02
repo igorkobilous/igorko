@@ -1,8 +1,9 @@
 {% extends "students/base.html" %}
+{% load i18n %}
 {% load static from staticfiles %}
 
-{% block meta_title %}Видалення{% endblock meta_title %}
-{% block title %}Видалити{% endblock title %}
+{% block meta_title %}{% trans "Delete" %}{% endblock meta_title %}
+{% block title %}{% trans "Delete" %}{% endblock title %}
 
 {% block content %}
 
@@ -12,13 +13,21 @@
 			{% endif%}
 			 method="post">
 	{% csrf_token %}
-	<p>Ви дійсно хочете видалити: {% if "/exams/" in request.path %} Екзамен
-		 														{% elif "/groups/" in request.path %} Групу
-																{% elif "/students/" in request.path %}Студента
-																{% endif %}
-																"{{ object }}"?</p>
-	<input type="submit" value="Так" name="delete_button"
+	{% if "/groups/" in request.path %}
+	<p>{% blocktrans %}Do you really want to delete group: "{{ object }}"?{% endblocktrans %}</p>
+	{% elif "/students/" in request.path %}
+	<p>{% blocktrans %}Do you really want to delete student: "{{ object }}"?{% endblocktrans %}</p>
+	{% elif "/exams/" in request.path %}
+	<p>{% blocktrans %}Do you really want to delete exam: "{{ object }}"?{% endblocktrans %}</p>
+	{% endif %}
+	<input type="submit" value="{% trans "Yes" %}" name="delete_button"
 	 			 class="btn btn-danger"/><br/><br/>
+
+	<a href="{% if "/groups/" in request.path %}{% url "groups" %}
+			{% elif "/students/" in request.path %}{% url "home" %}
+			{% elif "/exams/" in request.path %}{% url "exams" %}{% endif %}"
+	class "btn btn-info">{% trans "No" %}</a>
+	<br /><br />
 </form>
 
 {% endblock content %}

@@ -68,4 +68,6 @@ class ContactFormView(FormView):
             logger.exception(message)
         else:
             messages.warning(self.request, u"Повідомлення успішно надіслано!")
+            logger = logging.getLogger(__name__)
+            logger.info('Message: "%s" sent successfully from: %s', message, from_email)
         return super(ContactFormView, self).form_valid(form)

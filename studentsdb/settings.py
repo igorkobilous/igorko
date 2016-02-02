@@ -33,6 +33,7 @@ EMAIL_HOST_PASSWORD = 'ROti-8rYRJTbSSfsEoqCQg'
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
 
+ADMINS = (('Ihor', 'ihorkobilous@gmail.com'), ('Ihor', 'ihorbilous@yandex.ru'))
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -163,6 +164,12 @@ LOGGING = {
             'filename': LOG_FILE,
             'formatter': 'verbose'
         },
+        'mail_admins': {
+            'level': 'ERROR',
+            'class': 'django.utils.log.AdminEmailHandler',
+            'include_html': False,
+            'formatter': 'verbose',
+        }
     },
     'loggers': {
         'django': {
@@ -171,12 +178,13 @@ LOGGING = {
             'level': 'INFO',
         },
         'students.signals': {
-            'handlers': ['console', 'file'],
+            'handlers': ['console', 'file', 'mail_admins'],
             'level': 'INFO',
         },
         'students.views.contact_admin': {
-            'handlers': ['console', 'file'],
+            'handlers': ['console', 'file', 'mail_admins'],
             'level': 'INFO',
         }
     }
 }
+

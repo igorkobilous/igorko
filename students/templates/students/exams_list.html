@@ -53,7 +53,7 @@
 									{{ forloop.counter }}
 								{% endif %}
 							</td>
-							<td><a href="{% url "exams_edit" exam.id %}">{{ exam.subject }}</a></td>
+							<td><a href="{% url "exams_edit" exam.id %}" class="exam-edit-form-link">{{ exam.subject }}</a></td>
 							<td>{{ exam.date }}</a></td>
 							<td>{{ exam.lecturer }}</a></td>
 							<td><a href="{% url "groups_edit" exam.group.id %}">{{ exam.group }}</a></td>
@@ -62,7 +62,7 @@
 										<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">{% trans "Action" %} <span class="caret"></span>
 										</button>
 										<ul class="dropdown-menu" role="menu">
-										<li><a href="{% url "exams_edit" exam.id %}">{% trans "Edit" %}</a></li>
+										<li><a href="{% url "exams_edit" exam.id %} class="exam-edit-form-link"">{% trans "Edit" %}</a></li>
 										<li><a href="{% url "exams_delete" exam.id %}">{% trans "Delete" %}</a></li>
 									</ul>
 								</div>

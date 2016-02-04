@@ -34,8 +34,7 @@
 				<th class="name">{% trans "Student" %}</th>
 				{% for day in month_header %}
 				<th class="day-header">
-				<!-- TODO: translate day name -->
-					{{ day.verbose }}
+					{% trans day.verbose %}
 					<br />
 					{{ day.day }}
 				</th>

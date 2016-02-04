@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.urlresolvers import reverse
@@ -7,6 +5,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.forms import ModelForm
 from django.views.generic import CreateView, UpdateView, DeleteView
 from django.contrib import messages
+from django.utils.translation import ugettext as _
 
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit,HTML, Layout
@@ -66,8 +65,9 @@ class ExamCreateForm(ModelForm):
 		# add buttons
 
 		self.helper.layout[-1] = FormActions('notes',
-            Submit('add_button', u'Зберегти', css_class="btn btn-primary"),
-            HTML(u'<a class="btn btn-link" href={% url "exams" %}>Скасувати</a>'),)
+            Submit('add_button', _(u"Save"), css_class="btn btn-primary"),
+            HTML(u'{% load i18n %}<a class="btn btn-link" href={% url "exams" %}>{% trans "Cancel" %}</a>'),
+            )
 
 class ExamUpdateForm(ModelForm):
     class Meta:
@@ -94,8 +94,8 @@ class ExamUpdateForm(ModelForm):
 		# add buttons
 
 		self.helper.layout[-1] = FormActions('notes',
-            Submit('add_button', u'Зберегти', css_class="btn btn-primary"),
-            Submit('cancel_button', u'Скасувати', css_class="btn btn-link"),)
+            Submit('add_button', _(u"Save"), css_class="btn btn-primary"),
+            Submit('cancel_button', _(u"Cancel"), css_class="btn btn-link"),)
 
 #Exams Update and Create Views
 
@@ -105,15 +105,8 @@ class ExamCreateView(CreateView):
     form_class = ExamCreateForm
 
     def get_success_url(self):
-        messages.warning(self.request, u"Екзамен успішно збережено!")
+        messages.warning(self.request, _(u"Exam added successfuly!"))
         return reverse('exams')
-
-    """def post(self, request, *args, **kwargs):
-        if request.POST.get('cancel_button'):
-            messages.warning(self.request, u"Ствоерння екзамена скасовано!")
-            return HttpResponseRedirect(reverse('exams'))
-        else:
-            return super(ExamCreateView, self).post(request, *args, **kwargs)"""
 
 class ExamUpdateView(UpdateView):
     model = Exam
@@ -121,12 +114,12 @@ class ExamUpdateView(UpdateView):
     form_class = ExamUpdateForm
 
     def get_success_url(self):
-        messages.warning(self.request, u"Екзамен успішно редаговано!")
+        messages.warning(self.request, _(u"Exam updated successfuly!"))
         return reverse('exams')
 
     def post(self, request, *args, **kwargs):
         if request.POST.get('cancel_button'):
-            messages.warning(self.request, u"Редагування екзамена скасовано!")
+            messages.warning(self.request, _(u"Exam updated canceled!"))
             return HttpResponseRedirect(reverse('exams'))
         else:
             return super(ExamUpdateView, self).post(request, *args, **kwargs)
@@ -136,5 +129,5 @@ class ExamDeleteView(DeleteView):
     template_name = "students/confirm_delete.html"
 
     def get_success_url(self):
-		messages.warning(self.request, u"Екзамен успішно виделано!")
+		messages.warning(self.request, _(u"Exam deleted succesfuly!"))
 		return reverse('exams')

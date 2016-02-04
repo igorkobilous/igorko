@@ -69,7 +69,7 @@ function initEditStudentPage() {
 			'success': function(data, status, xhr){
 			// check if we got successfull response from the server
 				if (status != 'success') {
-					alert('Помилка на сервері. Спробуйте будь-ласка пізніше.');
+					alert(gettext('There was an error on the server. Please, try again a bit later.'));
 					return false;
 				}
 
@@ -95,7 +95,7 @@ function initEditStudentPage() {
 			},
 
 			'error': function(){
-				alert('Помилка на сервері. Спробуйте будь-ласка пізніше.');
+				alert(gettext('There was an error on the server. Please, try again a bit later.'));
 				return false
 			}
 		});
@@ -119,7 +119,7 @@ function initEditStudentForm(form, modal) {
 	form.ajaxForm({
 		'dataType': 'html',
 		'error': function(){
-			alert('Помилка на сервері. Спробуйте будь-ласка пізніше.');
+			alert(gettext('There was an error on the server. Please, try again a bit later.'));
 			return false;
 		},
 		'success': function(data, status, xhr) {
@@ -155,7 +155,7 @@ function initEditGroupPage(){
 			'success': function(data, status, xhr){
 				//check if we got succesfull response from the server
 				if (status != 'success'){
-					alert('Помилка на сервері. Спробуйте будь-ласка пізніше.');
+					alert(gettext('There was an error on the server. Please, try again a bit later.'));
 					return false;
 				}
 			//update modal window with arrived content from the server
@@ -174,7 +174,7 @@ function initEditGroupPage(){
 			});
 			},
 			'error': function(){
-				alert('Помилка на сервері. Спробуйте будь ласка пізніше.');
+				alert(gettext('There was an error on the server. Please, try again a bit later.'));
 				return false;
 			}
 		});
@@ -190,7 +190,7 @@ function initEditGroupForm(form, modal){
 	form.ajaxForm({
 		'dataType': 'html',
 		'error': function(){
-			alert('Помилка на сервері. Спробуйте будь-ласка пізніше.');
+			alert(gettext('There was an error on the server. Please, try again a bit later.'));
 			return false;
 		},
 		'success': function(data, status, xhr){
@@ -209,33 +209,70 @@ function initEditGroupForm(form, modal){
 	});
 }
 
-function pageWithoutRebooting(){
-	$('a.newurl').click(function(event){
+function initEditExamPage(){
+	$('a.exam-edit-form-link').click(function(event){
 		var link = $(this);
 		$.ajax({
 			'url': link.attr('href'),
 			'dataType': 'html',
 			'type': 'get',
-			'ajaxStart': function(){$body.addClass('loading');},
-			'ajaxStop': function(){$body.removeClass('loading');},
 			'success': function(data, status, xhr){
 				//check if we got succesfull response from the server
 				if (status != 'success'){
-					alert('Помилка на сервері. Спробуйте будь-ласка пізніше.');
+					alert(gettext('There was an error on the server. Please, try again a bit later.'));
 					return false;
 				}
 			//update modal window with arrived content from the server
-			var html = $(data), page = $(html.find('.content')), body = $('.content');
-			body.html(page);
+			var modal = $('#myModal'),
+				html = $(data), form = html.find('#content-column form');
+			modal.find('.modal-title').html(html.find('#content-column h2').text());
+			modal.find('.modal-body').html(form);
+
+			//init our edit form
+			initEditExamForm(form, modal);
+			//setup and show modal window finally
+			modal.modal({
+				'keyboard': false,
+				'backdrop': false,
+				'show': true
+			});
 			},
 			'error': function(){
-				alert('Помилка на сервері. Спробуйте будь ласка пізніше.');
+				alert(gettext('There was an error on the server. Please, try again a bit later.'));
 				return false;
 			}
 		});
 		return false;
 	});
 }
+function initEditExamForm(form, modal){
+	//close modal window on Cancel click
+	form.find('input[name="cancel_button"]').click(function(event){
+		modal.modal('hide');
+		return false;
+	});
+	form.ajaxForm({
+		'dataType': 'html',
+		'error': function(){
+			alert(gettext('There was an error on the server. Please, try again a bit later.'));
+			return false;
+		},
+		'success': function(data, status, xhr){
+			var html = $(data), newform = html.find('#content-column form');
+
+			//copy aler to modal window
+			modal.find('.modal-body').html(html.find('.alert'));
+			//copy form to modal if we found it in server response
+			if (newform.length > 0){
+				modal.find('.modal-body').append(newform);
+				initEditExamForm(newform, modal);
+			}else{
+				setTimeout(function(){location.reload(true);}, 500);
+			}
+		}
+	});
+}
+
 
 //All ready
 $(document).ready(function(){
@@ -245,4 +282,5 @@ $(document).ready(function(){
 
 	initEditStudentPage();
 	initEditGroupPage();
+	initEditExamPage();
 });

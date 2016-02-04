@@ -24,6 +24,10 @@ from students.models import Group
 
 from .settings import MEDIA_ROOT, DEBUG
 
+js_info_dict = {
+    'packages': ('students',),
+}
+
 urlpatterns = patterns('',
     # Students urls
     url(r'^$', 'students.views.students.students_list', name='home'),
@@ -66,6 +70,8 @@ urlpatterns = patterns('',
 
 
     url(r'^admin/', include(admin.site.urls)),
+
+    url(r'^jsi18n\.js$', 'django.views.i18n.javascript_catalog', js_info_dict),
 
     #Contact Admin form
     url(r'^contact-admin/$', ContactFormView.as_view(),

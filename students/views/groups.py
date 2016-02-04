@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.urlresolvers import reverse
@@ -9,6 +7,7 @@ from django.views.generic import DeleteView
 from django.forms import ModelForm
 from django.contrib import messages
 from django.core.exceptions import ValidationError
+from django.utils.translation import ugettext as _
 
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit,Button, HTML, Layout
@@ -69,15 +68,15 @@ class GroupCreateForm(ModelForm):
 		# add buttons
 
 		self.helper.layout[-1] = FormActions('notes',
-            Submit('add_button', u'Зберегти', css_class="btn btn-primary"),
-            #Submit('cancel_button', u'Скасувати', css_class="btn btn-link"),
-            HTML(u'<a class="btn btn-link" href={% url "groups" %}>Скасувати</a>'),
+            Submit('add_button', _(u"Save"), css_class="btn btn-primary"),
+            #Submit('cancel_button', _(u'Cancel'), css_class="btn btn-link"),
+            HTML(u'{% load i18n %}<a class="btn btn-link" href={% url "groups" %}>{% trans "Cancel" %}</a>'),
             )
 
     def clean_title(self):
         groups = Group.objects.filter(title=self.cleaned_data['title'])
         if len(groups)>0:
-            raise ValidationError(u'Така група вже існує. Виберіть іншу назву', code='invalid')
+            raise ValidationError(_(u"Such a group exists. Select another name"), code='invalid')
         return self.cleaned_data['title']
 
 class GroupUpdateForm(ModelForm):
@@ -105,13 +104,13 @@ class GroupUpdateForm(ModelForm):
 		# add buttons
 
 		self.helper.layout[-1] = FormActions('notes',
-            Submit('add_button', u'Зберегти', css_class="btn btn-primary"),
-            Submit('cancel_button', u'Скасувати', css_class="btn btn-link"),)
+            Submit('add_button', _(u"Save"), css_class="btn btn-primary"),
+            Submit('cancel_button', _(u"Cancel"), css_class="btn btn-link"),)
 
     def clean_title(self):
         groups = Group.objects.filter(title=self.cleaned_data['title'])
         if len(groups)>0 and self.instance != groups[0]:
-            raise ValidationError(u'Така група вже існує. Виберіть іншу назву', code='invalid')
+            raise ValidationError(_(u"Such a group exists. Select another name"), code='invalid')
         return self.cleaned_data['title']
 
 
@@ -123,16 +122,8 @@ class GroupCreateView(CreateView):
 
 
     def get_success_url(self):
-        messages.warning(self.request, u"Групу успішно додано!")
+        messages.warning(self.request, _(u"Group added succesfuly!"))
         return reverse('groups')
-
-    #import pdb;pdb.set_trace()
-    """def post(self, request, *args, **kwargs):
-        if request.POST.get('cancel_button'):
-            messages.warning(self.request, u"Додавання групи скасовано!")
-            return HttpResponseRedirect(reverse('groups'))
-        else:
-            return super(GroupCreateView, self).post(request, *args, **kwargs)"""
 
 
 class GroupUpdateView(UpdateView):
@@ -141,13 +132,13 @@ class GroupUpdateView(UpdateView):
     form_class = GroupUpdateForm
 
     def get_success_url(self):
-        messages.warning(self.request, u"Групу успішно збережено!")
+        messages.warning(self.request, _(u"Group updated successfuly!"))
         return reverse('groups')
 
 
     def post(self, request, *args, **kwargs):
         if request.POST.get('cancel_button'):
-            messages.warning(self.request, u"Редагування групи скасовано!")
+            messages.warning(self.request, _(u"Group updated canceled!"))
             return HttpResponseRedirect(reverse('groups'))
         else:
             return super(GroupUpdateView, self).post(request, *args, **kwargs)
@@ -159,5 +150,5 @@ class GroupDeleteView(DeleteView):
 	template_name = 'students/confirm_delete.html'
 
 	def get_success_url(self):
-		messages.warning(self.request, u"Студента успішно виделано!")
+		messages.warning(self.request, _(u"Group deleted successfuly!"))
 		return reverse('groups')

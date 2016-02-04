@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+
 from datetime import datetime, date
 from dateutil.relativedelta import relativedelta
 from calendar import monthrange, weekday, day_abbr
@@ -36,7 +36,7 @@ class JournalView(TemplateView):
 		number_of_days = monthrange(myear, mmonth)[1]
 
 		context['month_header'] = [{'day': d,
-			'verbose': day_abbr[weekday(myear, mmonth, d)][:2]}
+			'verbose': day_abbr[weekday(myear, mmonth, d)][:3]}
 			for d in range(1, number_of_days+1)]
 
 		current_group = get_current_group(self.request)
@@ -64,19 +64,19 @@ class JournalView(TemplateView):
 					'date': date(myear, mmonth, day).strftime(
 					'%Y-%m-%d'),
 					})
-			# набиваємо усі решту даних студента
+			# add date for students
 			students.append({
 				'fullname': u'%s %s' % (student.last_name, student.first_name),
 				'days': days,
 				'id': student.id,
 				'update_url': update_url,
 				})
-		# застосовуємо піганацію до списку студентів
+		# pagination for students
 		context = paginate(students, 10, self.request, context,
 			var_name='students')
-		# повертаємо оновлений словник із даними
+		# return new dictionary with date
 		return context
-	#import pdb;pdb.set_trace()
+	
 	def post(self, request, *args, **kwargs):
 		data = request.POST
 

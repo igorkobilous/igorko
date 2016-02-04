@@ -1,8 +1,10 @@
 {% extends "students/base.html" %}
+
+{% load i18n %}
 {% load static from staticfiles %}
 {% load crispy_forms_tags %}
-{% block meta_title %}Додати екзамен{% endblock meta_title %}
-{% block title %}Додати екзамен{% endblock title %}
+{% block meta_title %}{% trans "Add Exam" %}{% endblock meta_title %}
+{% block title %}{% trans "Add Exam" %}{% endblock title %}
 
 {% if errors %}
   <div class="alert alert-warning" role="alert">

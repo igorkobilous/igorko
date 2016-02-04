@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 from django.shortcuts import render
 from django.shortcuts import redirect
 from django.http import HttpResponse, HttpResponseRedirect
@@ -8,6 +6,8 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views.generic import UpdateView
 from django.views.generic import DeleteView
 from django.forms import ModelForm
+
+from django.utils.translation import ugettext as _
 from django.contrib import messages
 from datetime import datetime
 from django.core.exceptions import ValidationError
@@ -59,40 +59,40 @@ def students_add(request):
             #validate user input
 			first_name = request.POST.get('first_name', '').strip()
 			if not first_name:
-				errors['first_name'] = u"Ім'я є обов'язковим"
+				errors['first_name'] = _(u"First Name field is required")
 			else:
 				data['first_name'] = first_name
 
 			last_name = request.POST.get('last_name', '').strip()
 			if not last_name:
-				errors['last_name'] = u"Прізвище є обов'язковим"
+				errors['last_name'] = _(u"Last Name field is required")
 			else:
 				data['last_name'] = last_name
 
 			birthday = request.POST.get('birthday', '').strip()
 			if not birthday:
-				errors['birthday'] = u"Дата народження є обовязковою"
+				errors['birthday'] = _(u"Bithday is required")
 			else:
 				try:
 					datetime.strptime(birthday, '%Y-%m-%d')
 				except Exception:
-					errors['birthday'] = u"Введіть коректний формат дати(напр. 1984-12-30)"
+					errors['birthday'] = _(u"Please, enter correct date format (e.g. 1984-12-30)")
 				else:
 					data['birthday'] = birthday
 
 			ticket = request.POST.get('ticket', '').strip()
 			if not ticket:
-				errors['ticket'] = u"Номер білет є обовязковим"
+				errors['ticket'] = _(u"Ticket is required")
 			else:
 				data['ticket'] = ticket
 
 			student_group = request.POST.get('student_group', '').strip()
 			if not student_group:
-				errors['student_group'] = u"Оберіть групу для студента"
+				errors['student_group'] = _(u"Select group for student")
 			else:
 				groups = Group.objects.filter(pk=student_group)
 				if len(groups) != 1:
-					errors['student_group'] = u"Оберіть коректну групу"
+					errors['student_group'] = _(u"Please, select correct group")
 				else:
 					data['student_group'] = groups[0]
 
@@ -103,7 +103,7 @@ def students_add(request):
 				photo_format = {'jpeg':1, 'png':2, 'gif':3, 'jpg':4}
 				photo_data = ''
 				if photo.size >= 2000000:
-					errors['photo'] = u"Розмір файла не повинен перевищувати 2Мб"
+					errors['photo'] = _(u"Photo size should not exceed 2Mb")
 				else:
 					#if photo.content_type in content_types:
 					for i in photo_format:
@@ -112,26 +112,25 @@ def students_add(request):
 					if len(photo_data) > 0:
 						data['photo'] = photo
 					else:
-						errors['photo'] = u"Використовуйте фото форматом (.jpeg, .jpg, .gif, .png)"
+						errors['photo'] = _(u"Use the photo format (.jpeg, .jpg, .gif, .png)")
 
 			if not errors:
 				#create student object
 				student = Student(**data)
 				student.save()
-				messages.warning(request, u"Cтудента %s %s успіхно додано!" % (student.first_name, student.last_name))
+				messages.warning(request, _(u"Student added successfuly!"))
 
 				#redirect user to students list
 				return HttpResponseRedirect(reverse('home'))
-                #messages.success(request, u"Студента %s %s успіхно додано!")
 			else:
 				#render form with errors and previous user input
-				messages.info(request, u"Будь ласка виправте наступні помилки!")
+				messages.info(request, _(u"Please, correct the following errors!"))
 				return render(request, 'students/students_add.html',
 					{'groups': Group.objects.all().order_by('title'),
 					'errors':errors})
 		elif request.POST.get('cancel_button') is not None:
 			#redirect to home page on cancel button
-			messages.warning(request, u"Додавання студента скасовано!")
+			messages.warning(request, _(u"Student added canceled!"))
 			return HttpResponseRedirect(reverse('home'))
 	else:
 		#initial form render
@@ -164,8 +163,8 @@ class StudentUpdateForm(ModelForm):
 		# add buttons
 
 		self.helper.layout[-1] = FormActions('notes',
-            Submit('add_button', u'Зберегти', css_class="btn btn-primary"),
-            Submit('cancel_button', u'Скасувати', css_class="btn btn-link"),)
+            Submit('add_button', _(u'Save'), css_class="btn btn-primary"),
+            Submit('cancel_button', _(u'Cancel'), css_class="btn btn-link"),)
 
 	def clean_photo(self):
 		image = self.cleaned_data.get('photo', False)
@@ -173,7 +172,7 @@ class StudentUpdateForm(ModelForm):
 			img = Image.open(image)
 
 			if len(image) > (2*1024*1024):
-				raise ValidationError(u'Розмір фото не повинен перевищувати 2Мб', code='invalid')
+				raise ValidationError(_(u'Photo size should not exceed 2Mb'), code='invalid')
 			else:
 				return self.cleaned_data['photo']
 
@@ -185,14 +184,14 @@ class StudentUpdateView(UpdateView):
 
 
 	def get_success_url(self):
-		messages.warning(self.request, u"Студента успішно збережено")
+		messages.warning(self.request, _(u"Student updated successfuly"))
 		return reverse('home')
 
 
 
 	def post(self, request, *args, **kwargs):
 		if request.POST.get('cancel_button'):
-			messages.warning(self.request, u"Редагування студента скасовано")
+			messages.warning(self.request, _(u"Student updated canceled"))
 			return HttpResponseRedirect(reverse('home'))
 		else:
 			return super(StudentUpdateView, self).post(request, *args, **kwargs)
@@ -203,5 +202,5 @@ class StudentDeleteView(DeleteView):
 	template_name = 'students/confirm_delete.html'
 
 	def get_success_url(self):
-		messages.warning(self.request, u"Студента успішно виделано!")
+		messages.warning(self.request, _(u"Student deleted successfuly"))
 		return reverse('home')

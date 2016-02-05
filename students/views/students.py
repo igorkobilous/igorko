@@ -39,7 +39,7 @@ def students_list(request):
 			students = students.reverse()
 
 	#pagination
-	context = paginate(students, 3, request, {},
+	context = paginate(students, 10, request, {},
         var_name='students')
 
 	return render(request, 'students/students_list.html', context)

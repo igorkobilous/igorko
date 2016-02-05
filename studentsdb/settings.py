@@ -82,6 +82,7 @@ TEMPLATES = [
                 'studentsdb.context_processors.students_proc',
                 'students.context_processors.groups_processor',
                 'django.core.context_processors.request',
+                'django.core.context_processors.i18n',
             ],
         },
     },
@@ -116,6 +117,12 @@ USE_L10N = True
 USE_TZ = True
 
 TIME_ZONE = 'UTC'
+
+LANGUAGES = [
+    ('uk', 'Ukraine'),
+    ('en', 'English'),
+    ('pl', 'Polski'),
+]
 
 
 # Static files (CSS, JavaScript, Images)

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-04 10:26+0000\n"
+"POT-Creation-Date: 2016-02-05 10:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,8 +17,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: static/js/main.js:72 static/js/main.js:98 static/js/main.js:122
-#: static/js/main.js:158 static/js/main.js:177 static/js/main.js:193
-#: static/js/main.js:222 static/js/main.js:241 static/js/main.js:257
+#: static/js/main.js:73 static/js/main.js:99 static/js/main.js:123
+#: static/js/main.js:159 static/js/main.js:178 static/js/main.js:194
+#: static/js/main.js:223 static/js/main.js:242 static/js/main.js:258
 msgid "There was an error on the server. Please, try again a bit later."
 msgstr ""

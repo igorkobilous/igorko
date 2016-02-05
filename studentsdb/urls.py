@@ -14,6 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
 from django.conf.urls import patterns, include, url
+from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
 from students.views.students import StudentUpdateView, StudentDeleteView
 from students.views.groups import GroupUpdateView, GroupCreateView, GroupDeleteView
@@ -72,6 +73,8 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
 
     url(r'^jsi18n\.js$', 'django.views.i18n.javascript_catalog', js_info_dict),
+
+    url(r'^i18n/', include('django.conf.urls.i18n')),
 
     #Contact Admin form
     url(r'^contact-admin/$', ContactFormView.as_view(),

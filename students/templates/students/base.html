@@ -30,7 +30,6 @@
 			<div class="col-xs-8">
 				<h1>{% trans "Students Accounting Service" %}</h1>
 			</div>
-
 			<!-- Groups Selector-->
 			<div class="col-xs-4" id="group-selector">
 				<strong>{% trans "Group:" %}</strong>
@@ -85,12 +84,15 @@
       		</div>
     	</div>
 		<!-- End Main page Content-->
-
 		<!-- Start Footer-->
 		<div class="row" id="footer">
-			<div class="col-xs-12">
+			<div class="col-xs-10">
 				{% include "students/footer.html" %}
-        {%block footer%}{%endblock footer%}
+        		{%block footer%}{%endblock footer%}
+			</div>
+			<div class="col-xs-2" id="lang_selector">
+				{% include "students/change language.html" %}
+        		{%block set_language%}{%endblock set_language%}
 			</div>
 		</div>
 		<!-- End Footer-->

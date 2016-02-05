@@ -16,6 +16,7 @@ h1, h2, h3, h4, h5, h6{
 	color: #555555;
 }
 
+
 .alert{
 	margin-top: 10px;
 }
@@ -23,6 +24,27 @@ h1, h2, h3, h4, h5, h6{
 #footer{
 	border-top: 1px solid #DDDDDD;
 	padding-top: 10px;
+}
+
+#select_lang{
+	float: left;
+	width: 75%;
+	background-color: #ffffff;
+	border: 1px solid #cccccc;
+	border-radius: 5px 0 0 5px;
+	height: 30px;
+	line-height: 30px;
+	color: #555555; 
+}
+
+#btn_lang{
+	width: 20%;
+	background-color: #337ab7;
+	border: none; 
+	border-radius: 0 5px 5px 0;
+	height: 30px;
+	color: white;
+	float: left;
 }
 
 #month>ul{

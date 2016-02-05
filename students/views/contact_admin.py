@@ -6,7 +6,7 @@ from django.core.urlresolvers import reverse, reverse_lazy
 from django.contrib import messages
 from django.views.generic.edit import FormView
 from django.utils.translation import ugettext as _
-
+from django.utils.translation import ugettext_lazy
 
 from studentsdb.settings import ADMIN_EMAIL
 
@@ -39,14 +39,14 @@ class ContactForm(forms.Form):
         self.helper.add_input(Submit('send_button', _(u"Send")))
 
     from_email = forms.EmailField(
-        label = _(u"Your email adress"))
+        label = ugettext_lazy(u"Your email adress"))
 
     subject = forms.CharField(
-        label = _(u"Title"),
+        label = ugettext_lazy(u"Title"),
         max_length = 128)
 
     message = forms.CharField(
-        label = _(u"Message"),
+        label = ugettext_lazy(u"Message"),
         max_length = 2560,
         widget = forms.Textarea)
 

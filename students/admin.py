@@ -2,7 +2,6 @@
 from django.contrib import admin
 from django.core.urlresolvers import reverse
 from django.forms import ModelForm, ValidationError
-
 from .models import Student, Group, Exam, MonthJournal
 
 class StudentForAdmin(ModelForm):

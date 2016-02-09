@@ -39,7 +39,7 @@ def students_list(request):
 			students = students.reverse()
 
 	#pagination
-	context = paginate(students, 10, request, {},
+	context = paginate(students, 5, request, {},
         var_name='students')
 
 	return render(request, 'students/students_list.html', context)
@@ -166,7 +166,7 @@ class StudentUpdateForm(ModelForm):
             Submit('add_button', _(u'Save'), css_class="btn btn-primary"),
             Submit('cancel_button', _(u'Cancel'), css_class="btn btn-link"),)
 
-	def clean_photo(self):
+	"""def clean_photo(self):
 		image = self.cleaned_data.get('photo', False)
 		if image:
 			img = Image.open(image)
@@ -174,7 +174,7 @@ class StudentUpdateForm(ModelForm):
 			if len(image) > (2*1024*1024):
 				raise ValidationError(_(u'Photo size should not exceed 2Mb'), code='invalid')
 			else:
-				return self.cleaned_data['photo']
+				return self.cleaned_data['photo']"""
 
 
 class StudentUpdateView(UpdateView):

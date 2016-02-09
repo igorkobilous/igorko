@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-05 10:53+0000\n"
+"POT-Creation-Date: 2016-02-05 12:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -43,12 +43,12 @@ msgstr "Wykładowca"
 
 #: models/exam.py:29 models/group.py:11 models/student.py:50
 #: templates/students/exams_list.html:37
-#: templates/students/students_add.html:80
+#: templates/students/students_add.html:81
 msgid "Group"
 msgstr "Grupa"
 
 #: models/exam.py:36 models/group.py:29 models/student.py:47
-#: templates/students/students_add.html:94
+#: templates/students/students_add.html:95
 msgid "Additional note"
 msgstr "Dodatkowe uwagi"
 
@@ -84,30 +84,30 @@ msgstr "Student"
 msgid "Students"
 msgstr "Studenty"
 
-#: models/student.py:17 templates/students/students_add.html:22
+#: models/student.py:17 templates/students/students_add.html:23
 #: templates/students/students_list.html:33
 msgid "First Name"
 msgstr "Imię"
 
-#: models/student.py:22 templates/students/students_add.html:32
+#: models/student.py:22 templates/students/students_add.html:33
 #: templates/students/students_list.html:26
 msgid "Last Name"
 msgstr "Nazwisko"
 
-#: models/student.py:27 templates/students/students_add.html:42
+#: models/student.py:27 templates/students/students_add.html:43
 msgid "Middle Name"
 msgstr "Drugie imię"
 
-#: models/student.py:32 templates/students/students_add.html:52
+#: models/student.py:32 templates/students/students_add.html:53
 msgid "Birthday"
 msgstr "Urodziny"
 
-#: models/student.py:37 templates/students/students_add.html:62
+#: models/student.py:37 templates/students/students_add.html:63
 #: templates/students/students_list.html:24
 msgid "Photo"
 msgstr "Zdjęcia"
 
-#: models/student.py:43 templates/students/students_add.html:70
+#: models/student.py:43 templates/students/students_add.html:71
 msgid "Ticket"
 msgstr "Bilet"
 
@@ -265,35 +265,35 @@ msgstr "Dodaj studenta"
 msgid "Add Student"
 msgstr "Dodaj studenta"
 
-#: templates/students/students_add.html:26
+#: templates/students/students_add.html:27
 msgid "Enter first name"
 msgstr "Podaj imię"
 
-#: templates/students/students_add.html:36
+#: templates/students/students_add.html:37
 msgid "Enter last name"
 msgstr "Podaj nazwisko"
 
-#: templates/students/students_add.html:46
+#: templates/students/students_add.html:47
 msgid "Enter middle name"
 msgstr "Podaj drugie imię"
 
-#: templates/students/students_add.html:56
+#: templates/students/students_add.html:57
 msgid "[year]-[month]-[day]"
 msgstr "[rok]-[miesiąc]-[dzień]"
 
-#: templates/students/students_add.html:74
+#: templates/students/students_add.html:75
 msgid "Enter ticket number"
 msgstr "Podaj numer biletu"
 
-#: templates/students/students_add.html:84
+#: templates/students/students_add.html:85
 msgid "Select group"
 msgstr "Wybierz grupę"
 
-#: templates/students/students_add.html:103
+#: templates/students/students_add.html:104
 msgid "Add"
 msgstr "Dodaj"
 
-#: templates/students/students_add.html:106 views/exams.py:98
+#: templates/students/students_add.html:107 views/exams.py:98
 #: views/groups.py:108 views/students.py:167
 msgid "Cancel"
 msgstr "Anuluj"
@@ -408,7 +408,7 @@ msgstr "Wybierz grupę dla studentów"
 msgid "Please, select correct group"
 msgstr "Proszę wybrać właściwą grupę"
 
-#: views/students.py:106 views/students.py:175
+#: views/students.py:106
 msgid "Photo size should not exceed 2Mb"
 msgstr "Rozmiar zdjęcia nie powinna przekraczać 2MB"
 

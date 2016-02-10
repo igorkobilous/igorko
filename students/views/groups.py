@@ -144,11 +144,10 @@ class GroupUpdateView(UpdateView):
             return super(GroupUpdateView, self).post(request, *args, **kwargs)
 
 
-
 class GroupDeleteView(DeleteView):
-	model = Group
-	template_name = 'students/confirm_delete.html'
+    model = Group
+    template_name = 'students/confirm_delete.html'
 
-	def get_success_url(self):
-		messages.warning(self.request, _(u"Group deleted successfuly!"))
-		return reverse('groups')
+    def get_success_url(self):
+        messages.warning(self.request, _(u"Group deleted successfuly"))
+        return reverse('groups')

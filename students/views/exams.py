@@ -6,6 +6,8 @@ from django.forms import ModelForm
 from django.views.generic import CreateView, UpdateView, DeleteView
 from django.contrib import messages
 from django.utils.translation import ugettext as _
+from django.utils.decorators import method_decorator
+from django.contrib.auth.decorators import login_required
 
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit,HTML, Layout
@@ -108,6 +110,10 @@ class ExamCreateView(CreateView):
         messages.warning(self.request, _(u"Exam added successfuly!"))
         return reverse('exams')
 
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(ExamCreateView, self).dispatch(*args, **kwargs)
+
 class ExamUpdateView(UpdateView):
     model = Exam
     template_name = "students/exams_edit.html"
@@ -124,6 +130,10 @@ class ExamUpdateView(UpdateView):
         else:
             return super(ExamUpdateView, self).post(request, *args, **kwargs)
 
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(ExamUpdateView, self).dispatch(*args, **kwargs)
+
 class ExamDeleteView(DeleteView):
     model = Exam
     template_name = "students/confirm_delete.html"
@@ -131,3 +141,7 @@ class ExamDeleteView(DeleteView):
     def get_success_url(self):
 		messages.warning(self.request, _(u"Exam deleted succesfuly!"))
 		return reverse('exams')
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(ExamDeleteView, self).dispatch(*args, **kwargs)

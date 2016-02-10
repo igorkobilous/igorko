@@ -16,12 +16,17 @@ Including another URLconf
 from django.conf.urls import patterns, include, url
 from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
-from students.views.students import StudentUpdateView, StudentDeleteView
-from students.views.groups import GroupUpdateView, GroupCreateView, GroupDeleteView
+
+from students.views.students import StudentUpdateView, StudentDeleteView, students_list, students_add
+from students.views.groups import GroupUpdateView, GroupCreateView, GroupDeleteView, groups_list
 from students.views.exams import ExamCreateView, ExamUpdateView, ExamDeleteView
-from students.views.contact_admin import ContactFormView
 from students.views.journal import JournalView
 from students.models import Group
+
+from django.contrib.auth import views as auth_views
+from django.contrib.auth.decorators import login_required
+from django.views.generic.base import RedirectView, TemplateView
+
 
 from .settings import MEDIA_ROOT, DEBUG
 
@@ -44,8 +49,7 @@ urlpatterns = patterns('',
 
     # Groups urls
     url(r'^groups/$', 'students.views.groups.groups_list', name='groups'),
-    url(r'^groups/add/$',
-        GroupCreateView.as_view(),
+    url(r'^groups/add/$', GroupCreateView.as_view(),
         name='groups_add'),
     url(r'^groups/(?P<pk>\d+)/edit/$',
         GroupUpdateView.as_view(),
@@ -69,6 +73,17 @@ urlpatterns = patterns('',
         ExamDeleteView.as_view(),
         name='exams_delete'),
 
+    # User Related urls
+    url(r'^users/profile/$', login_required(TemplateView.as_view(
+        template_name='registration/profile.html')), name='profile'),
+    url(r'^users/logout/$', auth_views.logout, kwargs={'next_page': 'home'},
+        name='auth_logout'),
+    url(r'^register/complete/$', RedirectView.as_view(pattern_name='home'),
+        name='registration_complete'),
+    url(r'^users/', include('registration.backends.simple.urls',
+        namespace='users')),
+
+
 
     url(r'^admin/', include(admin.site.urls)),
 
@@ -77,13 +92,9 @@ urlpatterns = patterns('',
     url(r'^i18n/', include('django.conf.urls.i18n')),
 
     #Contact Admin form
-    url(r'^contact-admin/$', ContactFormView.as_view(),
-            name = 'contact_admin'),
+    url(r'^contact-admin/$', 'students.views.contact_admin.contact_admin',
+        name='contact_admin')
     )
-
-
-
-
 
 
 if DEBUG:

@@ -6,6 +6,8 @@ from calendar import monthrange, weekday, day_abbr
 from django.http import JsonResponse
 from django.core.urlresolvers import reverse
 from django.views.generic.base import TemplateView
+from django.utils.decorators import method_decorator
+from django.contrib.auth.decorators import login_required
 
 from ..models import MonthJournal, Student
 from ..util import paginate, get_current_group
@@ -94,3 +96,7 @@ class JournalView(TemplateView):
 		setattr(journal, 'present_day%d' % current_date.day, present)
 		journal.save()
 		return JsonResponse({'status': 'success'})
+
+	@method_decorator(login_required)
+	def dispatch(self, *args, **kwargs):
+		return super(JournalView, self).dispatch(*args, **kwargs)

@@ -6,6 +6,8 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views.generic import UpdateView
 from django.views.generic import DeleteView
 from django.forms import ModelForm
+from django.utils.decorators import method_decorator
+from django.contrib.auth.decorators import login_required
 
 from django.utils.translation import ugettext as _
 from django.contrib import messages
@@ -45,7 +47,7 @@ def students_list(request):
 	return render(request, 'students/students_list.html', context)
 
 
-
+@login_required
 def students_add(request):
 	#was form posted
 	if request.method == "POST":
@@ -196,6 +198,10 @@ class StudentUpdateView(UpdateView):
 		else:
 			return super(StudentUpdateView, self).post(request, *args, **kwargs)
 
+	@method_decorator(login_required)
+	def dispatch(self, *args, **kwargs):
+		return super(StudentUpdateView, self).dispatch(*args, **kwargs)
+
 
 class StudentDeleteView(DeleteView):
 	model = Student
@@ -204,3 +210,7 @@ class StudentDeleteView(DeleteView):
 	def get_success_url(self):
 		messages.warning(self.request, _(u"Student deleted successfuly"))
 		return reverse('home')
+
+	@method_decorator(login_required)
+	def dispatch(self, *args, **kwargs):
+		return super(StudentDeleteView, self).dispatch(*args, **kwargs)

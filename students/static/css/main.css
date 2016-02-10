@@ -131,3 +131,8 @@ max-width: 300px;
 #ajax-progress-indicator {
 	display: none;
 }
+
+#user-toolbar {
+	margin-top: 30px;
+	text-align: right;
+}

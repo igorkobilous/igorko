@@ -1,12 +1,13 @@
 from django.shortcuts import render
 from django import forms
 from django.core.mail import send_mail
-#from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse, reverse_lazy
 from django.contrib import messages
 from django.views.generic.edit import FormView
 from django.utils.translation import ugettext as _
 from django.utils.translation import ugettext_lazy
+from django.contrib.auth.decorators import permission_required
 
 from studentsdb.settings import ADMIN_EMAIL
 
@@ -49,7 +50,7 @@ class ContactForm(forms.Form):
         label = ugettext_lazy(u"Message"),
         max_length = 2560,
         widget = forms.Textarea)
-
+"""
 class ContactFormView(FormView):
     form_class = ContactForm
     template_name = 'contact_admin/form.html'
@@ -69,4 +70,39 @@ class ContactFormView(FormView):
             messages.warning(self.request, _(u"Message send successfully!"))
             logger = logging.getLogger(__name__)
             logger.info('Message: "%s" send successfully from: %s', message, from_email)
-        return super(ContactFormView, self).form_valid(form)
+        return super(ContactFormView, self).form_valid(form)"""
+
+@permission_required('auth.add_user')
+def contact_admin(request):
+    # check if form was posted
+    if request.method == 'POST':
+        # create a form instance and populate it with data from the request:
+        form = ContactForm(request.POST)
+
+        # check whether user data is valid:
+        if form.is_valid():
+            # send email
+            subject = form.cleaned_data['subject']
+            message = form.cleaned_data['message']
+            from_email = form.cleaned_data['from_email']
+
+            try:
+                send_mail(subject, message, from_email, [ADMIN_EMAIL])
+            except Exception:
+                messages.warning(request, _(u"When you send a letter there error.\
+                 Try given form later."))
+                logger = logging.getLogger(__name__)
+                logger.exception(message)
+            else:
+                messages.warning(request, _(u"Message send successfully!"))
+                logger = logging.getLogger(__name__)
+                logger.info('Message: "%s" send successfully from: %s', message, from_email)
+
+            # redirect to same contact page with success message
+            return HttpResponseRedirect(reverse('contact_admin'))
+
+    # if there was not POST render blank form
+    else:
+        form = ContactForm()
+
+    return render(request, 'contact_admin/form.html', {'form': form})

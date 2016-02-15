@@ -68,6 +68,7 @@
 				  <li role="presentation" {% if '/journal' in request.path  %}class="active"{% endif %}><a href="{% url "journal" %}" class="newurl">{% trans "Journal" %}</a></li>
 				  <li role="presentation" {% if  '/groups' in request.path %}class="active"{% endif %}><a href="{% url "groups" %}" class="newurl">{% trans "Groups" %}</a></li>
 					<li role="presentation" {% if  '/exams' in request.path %}class="active"{% endif %}><a href="{% url "exams" %}" class="newurl">{% trans "Exams" %}</a></li>
+					<li role="presentation" {% if  '/profiles' in request.path %}class="active"{% endif %}><a href="{% url "profiles" %}" class="newurl">{% trans "Users" %}</a></li>
 
 					{% endif %}
 					{% if perms.auth.add_user %}

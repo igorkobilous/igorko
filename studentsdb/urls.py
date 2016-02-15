@@ -75,6 +75,9 @@ urlpatterns = patterns('',
     # User Related urls
     url(r'^users/profile/$', login_required(TemplateView.as_view(
         template_name='registration/profile.html')), name='profile'),
+    url(r'^profiles/$', 'stud_auth.views.users_list', name='profiles'),
+    url(r'^profiles/(?P<pk>\d+)/$', TemplateView.as_view(
+        template_name='registration/profile.html'), name='userprofile'),
     url(r'^users/logout/$', auth_views.logout, kwargs={'next_page': 'home'},
         name='auth_logout'),
     url(r'^register/complete/$', RedirectView.as_view(pattern_name='home'),

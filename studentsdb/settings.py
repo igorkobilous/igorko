@@ -58,7 +58,7 @@ INSTALLED_APPS = (
     'registration',
     'social.apps.django_app.default',
     'students',
-    'studentsdb',
+    'stud_auth',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -78,7 +78,7 @@ ROOT_URLCONF = 'studentsdb.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'stud_auth','templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -148,6 +148,8 @@ CRISPY_TEMPLATE_PACK = 'bootstrap3'
 #        "django.core.context_processors.request",
 #        "studentsdb.context_processors.students_proc",
 #        )
+
+#REGISTRATION AND LOGIN
 
 REGISTRATION_OPEN = True
 

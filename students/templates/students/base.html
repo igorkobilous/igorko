@@ -51,7 +51,8 @@
 			<!-- User's toolbar for anonymous users -->
 			<div class="col-xs-6" id="user-toolbar">
 				<a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}">
-				{% trans "via Facebook" %}</a> |
+				<img src="{% static "img/facebook.png" %}"
+					               height="20" width="20" /></a> |
         		<a href="{% url "users:auth_login" %}">{% trans "Login" %}</a> |
         		<a href="{% url "users:registration_register" %}">{% trans "Register" %}</a>
 			{% endif %}
@@ -67,6 +68,7 @@
 				  <li role="presentation" {% if '/journal' in request.path  %}class="active"{% endif %}><a href="{% url "journal" %}" class="newurl">{% trans "Journal" %}</a></li>
 				  <li role="presentation" {% if  '/groups' in request.path %}class="active"{% endif %}><a href="{% url "groups" %}" class="newurl">{% trans "Groups" %}</a></li>
 					<li role="presentation" {% if  '/exams' in request.path %}class="active"{% endif %}><a href="{% url "exams" %}" class="newurl">{% trans "Exams" %}</a></li>
+
 					{% endif %}
 					{% if perms.auth.add_user %}
 					<li role="presentation" {% if '/contact-admin' in request.path %}class="active"{% endif %}><a href="{% url "contact_admin" %}" class="newurl">{% trans "Contact" %}</a></li>

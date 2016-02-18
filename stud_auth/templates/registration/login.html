@@ -34,6 +34,9 @@
 
   <button type="submit" class="btn btn-primary">{% trans "Login" %}</button>
 
+
+  <p>{% trans "Forgot your password?" %} <a href="{% url "reset_password_reset" %}">{% trans "Reset it" %}</a>.</p>
+
 </form>
 
 {% endblock content %}

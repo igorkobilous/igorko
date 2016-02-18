@@ -34,6 +34,7 @@ EMAIL_HOST_USER = 'ihorkobilous@gmail.com'
 EMAIL_HOST_PASSWORD = 'ROti-8rYRJTbSSfsEoqCQg'
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
+DEFAULT_FROM_EMAIL  = 'webmaster@my-host.com'
 
 ADMINS = (('Ihor', 'ihorkobilous@gmail.com'), ('Ihor', 'ihorbilous@yandex.ru'))
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -158,11 +159,29 @@ LOGOUT_URL = 'users:auth_logout'
 
 AUTHENTICATION_BACKENDS = (
     'social.backends.facebook.FacebookOAuth2',
+    'social.backends.google.GoogleOAuth2',
+    'social.backends.twitter.TwitterOAuth',
     'django.contrib.auth.backends.ModelBackend',
 )
 
+#key for facebook login
 SOCIAL_AUTH_FACEBOOK_KEY = '1052578368137861'
 SOCIAL_AUTH_FACEBOOK_SECRET = '09f6de7ca423dcd6b3bcd3ec08feee7b'
+
+#key for google login
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '538712673303-326m7bhnan728uj2q0295fuur8dfm7lk.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'Vd1YWM01zCGTX1NgSI2eGdmZ'
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_IGNORE_DEFAULT_SCOPE =  True 
+SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE =  [ 
+    'https://www.googleapis.com/auth/userinfo.email' , 
+    'https://www.googleapis.com/auth/userinfo.profile' 
+]
+SOCIAL_AUTH_GOOGLE_OAUTH2_USE_DEPRECATED_API = True
+
+#key for twitter login
+SOCIAL_AUTH_TWITTER_KEY = ''
+SOCIAL_AUTH_TWITTER_SECRET = ''
 
 #settings for Logger
 LOG_FILE = os.path.join(BASE_DIR, 'studentsdb.log')

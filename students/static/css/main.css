@@ -136,3 +136,24 @@ max-width: 300px;
 	margin-top: 30px;
 	text-align: right;
 }
+
+#id_new_password1,
+#id_new_password2,
+#id_email{
+	background-color: #ffffff;
+	border: 1px solid #cccccc;
+	border-radius: 5px 5px;
+	height: 30px;
+	line-height: 30px;
+	color: #555555;
+}
+
+#btn_set_pass{
+	background-color: #337ab7;
+	border: none; 
+	border-radius: 5px 5px;
+	height: 30px;
+	color: white;
+	float: left;
+	margin-bottom: 5px;
+}

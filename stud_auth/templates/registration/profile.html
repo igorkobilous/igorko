@@ -43,7 +43,7 @@
   {% if user.date_joined %}
   <tr>
     <td>{% trans "Joined" %}:</td>
-    <td>{{ user.date_joined }}</td>
+    <td>{{ user.date_joined.date }}</td>
   </tr>
   {% endif %}
 </table>

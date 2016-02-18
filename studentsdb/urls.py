@@ -76,14 +76,16 @@ urlpatterns = patterns('',
     url(r'^users/profile/$', login_required(TemplateView.as_view(
         template_name='registration/profile.html')), name='profile'),
     url(r'^profiles/$', 'stud_auth.views.users_list', name='profiles'),
-    url(r'^profiles/(?P<pk>\d+)/$', TemplateView.as_view(
-        template_name='registration/profile.html'), name='userprofile'),
     url(r'^users/logout/$', auth_views.logout, kwargs={'next_page': 'home'},
         name='auth_logout'),
     url(r'^register/complete/$', RedirectView.as_view(pattern_name='home'),
         name='registration_complete'),
     url(r'^users/', include('registration.backends.simple.urls',
         namespace='users')),
+    url(r'^reset/password_reset/$', 'django.contrib.auth.views.password_reset', name='reset_password_reset'),
+    url(r'^reset/password_reset/done/$', 'django.contrib.auth.views.password_reset_done', name='password_reset_done'),
+    url(r'^reset/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>.+)/$', 'django.contrib.auth.views.password_reset_confirm', name='password_reset_confirm'),
+    url(r'^reset/done/$', 'django.contrib.auth.views.password_reset_complete', name='password_reset_complete'),
 
 
     # Social Auth Related urls

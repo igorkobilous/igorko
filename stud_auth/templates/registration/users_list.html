@@ -28,6 +28,9 @@
 							{% elif order_by == 'date_joined' and reverse == '1' %}&darr;
 							{% endif %}</a>
 							</th>
+							<th>Email</th>
+							<th>Adress</th>
+							<th>Student Card</th>
 						</tr>
 					</thead>
 					{% endwith %}
@@ -41,8 +44,11 @@
 									{{ forloop.counter }}
 								{% endif %}
 							</td>
-							<td><a href="{% url "userprofile" user.id %}">{{ user.username }}</a></td>
-							<td>{{ user.date_joined }}</td>
+							<td>{{ user.username }}</td>
+							<td>{{ user.date_joined.date }}</td>
+							<td>{{ user.email }}</td>
+							<td>{{ user.stprofile.address }}</td>
+							<td>{{ user.stprofile.student_card }}</td>
 						</tr>
 						{% endfor%}
 					</tbody>

@@ -2,7 +2,6 @@ from django.shortcuts import render
 from django.contrib.auth.models import User
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
-
 def users_list(request):
 	#check if we need to show only one group of students
 	users = User.objects.all()

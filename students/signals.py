@@ -6,6 +6,7 @@ from django.core.signals import request_started
 from django.dispatch import receiver
 
 from .models import Student, Group, Exam
+from django.contrib.auth.models import User
 
 
 @receiver(post_save)
@@ -54,4 +55,4 @@ def log_student_group_exam_deleted_event(sender, **kwargs):
 
 @receiver(request_started)
 def my_callback(sender, **kwargs):
-	print('request_started')
+	print('request started')

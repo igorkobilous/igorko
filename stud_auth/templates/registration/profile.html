@@ -1,6 +1,7 @@
 {% extends "students/base.html" %}
 
 {% load i18n %}
+{% load static from staticfiles %}
 
 {% block meta_title %}{{ user.get_full_name|default:user.username }}{% endblock meta_title %}
 
@@ -20,6 +21,18 @@
   <tr>
     <td>{% trans "Username" %}:</td>
     <td>{{ user.username }}</td>
+  </tr>
+  {% endif %}
+  {% if user.first_name %}
+  <tr>
+    <td>{% trans "First Name" %}:</td>
+    <td>{{ user.first_name }}</td>
+  </tr>
+  {% endif %}
+  {% if user.last_name %}
+  <tr>
+    <td>{% trans "Last Name" %}:</td>
+    <td>{{ user.last_name }}</td>
   </tr>
   {% endif %}
   {% if user.stprofile.mobile_phone %}
@@ -47,5 +60,7 @@
   </tr>
   {% endif %}
 </table>
+
+<a href="{% url "profile_settings" user.id %}" class="user-edit-form-link"><img src="{% static "img/settings.png" %}" height="30" width="30"/></a>
 
 {% endblock content %}

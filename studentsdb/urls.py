@@ -22,6 +22,7 @@ from students.views.groups import GroupUpdateView, GroupCreateView, GroupDeleteV
 from students.views.exams import ExamCreateView, ExamUpdateView, ExamDeleteView, exams_list
 from students.views.journal import JournalView
 from students.models import Group
+from stud_auth.views import UserUpdateView
 
 from django.contrib.auth import views as auth_views
 from django.contrib.auth.decorators import login_required
@@ -75,6 +76,9 @@ urlpatterns = patterns('',
     # User Related urls
     url(r'^users/profile/$', login_required(TemplateView.as_view(
         template_name='registration/profile.html')), name='profile'),
+    url(r'^users/profile/(?P<pk>\d+)/edit/$',
+        login_required(UserUpdateView.as_view()),
+        name='profile_settings'),
     url(r'^profiles/$', 'stud_auth.views.users_list', name='profiles'),
     url(r'^users/logout/$', auth_views.logout, kwargs={'next_page': 'home'},
         name='auth_logout'),

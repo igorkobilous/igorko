@@ -1,0 +1,271 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-02-21 14:51+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
+
+#: models.py:12
+msgid "User Profile"
+msgstr "Profil użytkownika"
+
+#: models.py:18 templates/registration/profile.html:40
+msgid "Mobile Phone"
+msgstr "Telefon komórkowy"
+
+#: models.py:23 templates/registration/profile.html:46
+msgid "Address"
+msgstr "Adres"
+
+#: models.py:28 templates/registration/profile.html:52
+#: templates/registration/users_list.html:33
+msgid "Student Card"
+msgstr "Karta studencka"
+
+#: templates/registration/login.html:5 templates/registration/login.html:7
+msgid "Login Form"
+msgstr "Forma loginu"
+
+#: templates/registration/login.html:11
+#: templates/registration/registration_form.html:11
+msgid "Please, correct the following errors."
+msgstr "Proszę poprawić następujące błędy."
+
+#: templates/registration/login.html:22
+#: templates/registration/registration_form.html:22
+msgid "Your Username"
+msgstr "Twoja nazwa użytkownika"
+
+#: templates/registration/login.html:29
+#: templates/registration/registration_form.html:43
+msgid "Your Password"
+msgstr "Twoje hasło"
+
+#: templates/registration/login.html:35
+msgid "Login"
+msgstr "Zaloguj Się"
+
+#: templates/registration/login.html:38
+msgid "Forgot your password?"
+msgstr "Zapomniałeś hasła?"
+
+#: templates/registration/login.html:38
+msgid "Reset it"
+msgstr "zresetować"
+
+#: templates/registration/password_change_done.html:4
+msgid "Password changed"
+msgstr "Hasło zostało zmienione"
+
+#: templates/registration/password_change_done.html:7
+msgid "Password successfully changed!"
+msgstr "Hasło poprawnie zmienione!"
+
+#: templates/registration/password_change_form.html:4
+#: templates/registration/password_change_form.html:10
+msgid "Change password"
+msgstr "Zmień hasło"
+
+#: templates/registration/password_reset_complete.html:4
+msgid "Password reset complete"
+msgstr "Hasło zresetować kompletna"
+
+#: templates/registration/password_reset_complete.html:8
+msgid "Your password has been reset!"
+msgstr "Twoje hasło zostało zresetowane!"
+
+#: templates/registration/password_reset_complete.html:9
+#, python-format
+msgid "You may now <a href=\"%(login_url)s\">log in</a>"
+msgstr "Teraz można <a href=\"%(login_url)s\">zalogować</a>"
+
+#: templates/registration/password_reset_confirm.html:4
+msgid "Confirm password reset"
+msgstr "Potwierdź zresetowanie hasła"
+
+#: templates/registration/password_reset_confirm.html:7
+msgid "Enter your new password below to reset your password:"
+msgstr "Wpisz poniżej swoje nowe hasło, aby zresetować hasło:"
+
+#: templates/registration/password_reset_confirm.html:11
+msgid "Set password"
+msgstr "Ustaw hasło"
+
+#: templates/registration/password_reset_done.html:4
+msgid "Password reset"
+msgstr "Resetowania hasła"
+
+#: templates/registration/password_reset_done.html:8
+msgid ""
+"\n"
+"    We have sent you an email with a link to reset your password. Please "
+"check\n"
+"    your email and click the link to continue.\n"
+"    "
+msgstr ""
+"\n"
+"    Wysłaliśmy do Ciebie e-mail z linkiem do resetowania hasła. Proszę "
+"czek\n"
+"    Twój e-mail i kliknij link, aby kontynuować.\n"
+"    "
+
+#: templates/registration/password_reset_email.html:3
+msgid "Greetings"
+msgstr ""
+
+#: templates/registration/password_reset_email.html:5
+#, python-format
+msgid ""
+"\n"
+"You are receiving this email because you (or someone pretending to be you)\n"
+"requested that your password be reset on the %(domain)s site. If you do not\n"
+"wish to reset your password, please ignore this message.\n"
+msgstr ""
+
+#: templates/registration/password_reset_email.html:11
+msgid ""
+"\n"
+"To reset your password, please click the following link, or copy and paste "
+"it\n"
+"into your web browser:\n"
+msgstr ""
+
+#: templates/registration/password_reset_email.html:19
+msgid "Your username, in case you've forgotten:"
+msgstr ""
+
+#: templates/registration/password_reset_email.html:22
+msgid "Best regards"
+msgstr ""
+
+#: templates/registration/password_reset_email.html:23
+msgid "Management"
+msgstr ""
+
+#: templates/registration/password_reset_form.html:4
+#: templates/registration/password_reset_form.html:15
+msgid "Reset password"
+msgstr ""
+
+#: templates/registration/password_reset_form.html:8
+msgid ""
+"\n"
+"    Forgot your password? Enter your email in the form below and we'll send "
+"you instructions for creating a new one.\n"
+"    "
+msgstr ""
+"\n"
+"    Zapomniałeś hasła? Wpisz swój adres e-mail w poniższy formularz, a my wyślemy "
+"instrukcje dotyczące tworzenia nowego.\n"
+"    "
+
+#: templates/registration/profile.html:16
+#: templates/registration/users_list.html:31
+msgid "Email"
+msgstr "E-mail"
+
+#: templates/registration/profile.html:22
+msgid "Username"
+msgstr "Nazwa użytkownika"
+
+#: templates/registration/profile.html:28
+msgid "First Name"
+msgstr "Nazwa"
+
+#: templates/registration/profile.html:34
+msgid "Last Name"
+msgstr "Nazwisko"
+
+#: templates/registration/profile.html:58
+msgid "Joined"
+msgstr "Dołączył"
+
+#: templates/registration/profile_settings.html:7
+#: templates/registration/profile_settings.html:9
+msgid "Settings"
+msgstr "Ustawienia"
+
+#: templates/registration/profile_settings.html:15
+#: templates/registration/users_edit.html:12
+msgid "Please, correct the following errors"
+msgstr "Proszę poprawić następujące błędy"
+
+#: templates/registration/registration_form.html:5
+#: templates/registration/registration_form.html:7
+msgid "Register Form"
+msgstr "Zarejestruj Forms"
+
+#: templates/registration/registration_form.html:29
+msgid "Your Full name"
+msgstr "Twoje pełne imię"
+
+#: templates/registration/registration_form.html:36
+msgid "Your Email"
+msgstr "Twój email"
+
+#: templates/registration/registration_form.html:50
+msgid "Confirm Password"
+msgstr "Potwierdź hasło"
+
+#: templates/registration/registration_form.html:56
+msgid "Register"
+msgstr "Zarejestrować"
+
+#: templates/registration/users_edit.html:6
+#: templates/registration/users_edit.html:7
+msgid "User Update"
+msgstr "Aktualizacja użytkownika"
+
+#: templates/registration/users_list.html:5
+msgid "profiles"
+msgstr "profile"
+
+#: templates/registration/users_list.html:7
+msgid "Users List"
+msgstr "Lista użytkowników"
+
+#: templates/registration/users_list.html:19
+msgid "User Name"
+msgstr "Nazwa użytkownika"
+
+#: templates/registration/users_list.html:26
+msgid "Date Joined"
+msgstr "Data dołączenia"
+
+#: templates/registration/users_list.html:32
+msgid "Addres"
+msgstr "Adres"
+
+#: templates/registration/users_list.html:61
+msgid "No users in the database"
+msgstr "No użytkowników w bazie danych"
+
+#: views.py:57
+msgid "Save"
+msgstr "Zapisać"
+
+#: views.py:58
+msgid "Cancel"
+msgstr "Anuluj"
+
+#: views.py:67
+msgid "User updated successfuly"
+msgstr "Użytkownik pomyślnie zaktualizowane"
+
+#: views.py:72
+msgid "User updated canceled"
+msgstr "Użytkownik zaktualizował anulowane"

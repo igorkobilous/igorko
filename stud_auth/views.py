@@ -10,8 +10,10 @@ from django.utils.translation import ugettext as _
 from django.contrib import messages
 
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Submit, Layout
+from crispy_forms.layout import Submit, Layout, HTML
 from crispy_forms.bootstrap import FormActions
+
+from .models import StProfile
 
 
 def users_list(request):
@@ -53,7 +55,8 @@ class UserUpdateForm(ModelForm):
 
 		self.helper.layout[-1] = FormActions('last_name',
             Submit('add_button', _(u'Save'), css_class="btn btn-primary"),
-            Submit('cancel_button', _(u'Cancel'), css_class="btn btn-link"),)
+            Submit('cancel_button', _(u'Cancel'), css_class="btn btn-link"),
+			)
 
 class UserUpdateView(UpdateView):
 	model = User

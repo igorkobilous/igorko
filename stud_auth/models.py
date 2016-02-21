@@ -20,7 +20,7 @@ class StProfile(models.Model):
     address = models.CharField(
         max_length=256,
         blank=True,
-        verbose_name=_(u"Adress"),
+        verbose_name=_(u"Address"),
         default='')
     student_card = models.CharField(
         max_length=10,

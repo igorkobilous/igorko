@@ -1,0 +1,23 @@
+{% extends "students/base.html" %}
+
+{% load i18n %}
+{% load static from staticfiles %}
+{% load crispy_forms_tags %}
+
+{% block meta_title %}{% trans "Settings" %} | {{ user.get_full_name|default:user.username }}{% endblock meta_title %}
+
+{% block title %}{% trans "Settings" %} | {{ user.get_full_name|default:user.username }}{% endblock title %}
+
+
+{% block status_message %}
+  {% if errors %}
+    <div class="alert alert-warning" role="alert">
+    {% trans "Please, correct the following errors" %}
+    </div>
+  {% endif %}
+{% endblock status_message %}
+{% block content %}
+
+  {% crispy form %}
+
+{% endblock content %}

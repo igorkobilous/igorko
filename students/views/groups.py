@@ -151,3 +151,4 @@ class GroupDeleteView(DeleteView):
     def get_success_url(self):
         messages.warning(self.request, _(u"Group deleted successfuly"))
         return reverse('groups')
+

@@ -2,6 +2,7 @@
 
 {% load i18n %}
 {% load static from staticfiles %}
+{% load pagenav %}
 
 {% block meta_title %}{% trans "Groups" %}{% endblock meta_title %}
 
@@ -64,9 +65,7 @@
             {% endfor %}
           </tbody>
         </table>
-				{% with object_list=groups %}
-					{% include "students/paginated.html" %}
-				{% endwith %}
+				{% pagenav groups is_paginated paginator %}
         <!-- End Students Listing -->
         {% else %}
         <p>{% trans "No groups in the database" %}</p>

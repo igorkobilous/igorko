@@ -2,6 +2,8 @@
 
 {% load i18n %}
 {% load static from staticfiles %}
+{% load pagenav %}
+
 {% block meta_title %}{% trans "Exams" %}{% endblock meta_title %}
 {% block title %}{% trans "Exams List" %}{% endblock title %}
 
@@ -71,9 +73,7 @@
 						{% endfor %}
 					</tbody>
 				</table>
-				{% with object_list=exams %}
-					{% include "students/paginated.html" %}
-				{% endwith %}
+				{% pagenav exams is_paginated paginator %}
 				{% else %}
 				<p>{% trans "No exams in the database" %}</p>
 				{% endif %}

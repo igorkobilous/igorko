@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-15 11:45+0000\n"
+"POT-Creation-Date: 2016-02-22 10:35+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,7 +23,7 @@ msgstr ""
 msgid "Exam"
 msgstr "Екзамен"
 
-#: models/exam.py:10 templates/students/base.html:69
+#: models/exam.py:10 templates/students/base.html:76
 #: templates/students/exams_list.html:5
 msgid "Exams"
 msgstr "Екзамени"
@@ -52,7 +52,7 @@ msgstr "Група:"
 msgid "Additional note"
 msgstr "Додаткові нотатки"
 
-#: models/group.py:12 templates/students/base.html:68
+#: models/group.py:12 templates/students/base.html:75
 #: templates/students/groups_list.html:6
 msgid "Groups"
 msgstr "Групи"
@@ -79,7 +79,7 @@ msgstr "Місячні журнали"
 msgid "Student"
 msgstr "Студент"
 
-#: models/student.py:10 templates/students/base.html:65
+#: models/student.py:10 templates/students/base.html:72
 #: templates/students/students_list.html:5
 msgid "Students"
 msgstr "Студенти"
@@ -136,25 +136,25 @@ msgstr "Усі студенти"
 msgid "Logout"
 msgstr "Вийти"
 
-#: templates/students/base.html:54
-msgid "via Facebook"
-msgstr "через Facebook"
-
-#: templates/students/base.html:55
+#: templates/students/base.html:62
 msgid "Login"
 msgstr "Увійти"
 
-#: templates/students/base.html:56
+#: templates/students/base.html:63
 msgid "Register"
 msgstr "Зареєструвати"
 
-#: templates/students/base.html:67 templates/students/journal.html:6
+#: templates/students/base.html:74 templates/students/journal.html:6
 #: templates/students/journal.html.py:7
 #: templates/students/students_list.html:81
 msgid "Journal"
 msgstr "Відвідування"
 
-#: templates/students/base.html:72
+#: templates/students/base.html:77
+msgid "Users"
+msgstr "Користувачі"
+
+#: templates/students/base.html:81
 msgid "Contact"
 msgstr "Контакт"
 
@@ -466,3 +466,6 @@ msgstr "Редагування студента відмінено"
 #: views/students.py:211
 msgid "Student deleted successfuly"
 msgstr "Студента успішно видалено"
+
+#~ msgid "via Facebook"
+#~ msgstr "через Facebook"

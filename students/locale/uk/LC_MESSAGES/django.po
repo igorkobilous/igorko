@@ -388,10 +388,8 @@ msgid "Such a group exists. Select another name"
 msgstr "Така група існує. Виберіть інше ім'я"
 
 #: views/groups.py:125
-#, fuzzy
-#| msgid "Group updated successfuly!"
 msgid "Group added succesfuly!"
-msgstr "Групу успішно редаговано"
+msgstr "Групу успішно додано"
 
 #: views/groups.py:135
 msgid "Group updated successfuly!"
@@ -402,8 +400,6 @@ msgid "Group updated canceled!"
 msgstr "Редагування групи відмінено"
 
 #: views/groups.py:152
-#, fuzzy
-#| msgid "Group deleted successfuly!"
 msgid "Group deleted successfuly"
 msgstr "Групу успішно видалено"
 

@@ -1,6 +1,8 @@
-from datetime import datetime
+from datetime import datetime, timedelta, time
+from bs4 import BeautifulSoup, Tag, NavigableString
 
 from django.http import HttpResponse
+from .settings import TEMPLATE_DEBUG
 
 
 class RequestTimeMiddleware(object):
@@ -11,6 +13,8 @@ class RequestTimeMiddleware(object):
         return None
 
     def process_response(self, request, response):
+        if not TEMPLATE_DEBUG:
+            return response
         # if our process_request was canceled somewhere within
         # middleware stack, we can not calculate request time
         if not hasattr(request, 'start_time'):
@@ -18,9 +22,12 @@ class RequestTimeMiddleware(object):
 
         # calculate request execution time
         request.end_time = datetime.now()
+        #= timedelta(seconds=1)
+        #if (request.end_time - request.start_time) > t:
+        #   return HttpResponse('Processing of request too slow. Developer - check of my code!') 
         if 'text/html' in response.get('Content-Type', ''):
-            response.write('<br />Request took: %s' % str(
-                request.end_time - request.start_time))
+           response.write('<br />Request took: %s' % str(
+               request.end_time - request.start_time))
 
         return response
 

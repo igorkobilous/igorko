@@ -105,7 +105,7 @@ WSGI_APPLICATION = 'studentsdb.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
-DATABASES = {
+"""DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'HOST': 'localhost',
@@ -113,7 +113,8 @@ DATABASES = {
         'PASSWORD': 'x8wer3',
         'NAME': 'students_db',
     }
-}
+}"""
+from .db import DATABASES
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/

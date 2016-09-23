@@ -16,27 +16,21 @@ import os
 #BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-
+try:
+    from settings_local import *
+except ImportError:
+    import sys
+    sys.stderr.write('Unable to read settings_local.py\n')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'xwr3&0e0rgs!8viv9w&-1k4r^=&1(869kamt5+=gfn6^^b@+j+'
 
 # SMTP
 # email settings
 # please, set here you smtp server details and your admin email
-ADMIN_EMAIL = 'admin@studentsdb.com'
-EMAIL_HOST = 'smtp.mandrillapp.com'
-EMAIL_PORT = '587'
-EMAIL_HOST_USER = 'ihorkobilous@gmail.com'
-EMAIL_HOST_PASSWORD = 'ROti-8rYRJTbSSfsEoqCQg'
-EMAIL_USE_TLS = True
-EMAIL_USE_SSL = False
-DEFAULT_FROM_EMAIL  = 'webmaster@my-host.com'
 
-ADMINS = (('Ihor', 'ihorkobilous@gmail.com'), ('Ihor', 'ihorbilous@yandex.ru'))
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -105,16 +99,6 @@ WSGI_APPLICATION = 'studentsdb.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
-"""DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'HOST': 'localhost',
-        'USER': 'students_db_user',
-        'PASSWORD': 'x8wer3',
-        'NAME': 'students_db',
-    }
-}"""
-from .db import DATABASES
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
@@ -167,23 +151,7 @@ AUTHENTICATION_BACKENDS = (
 )
 
 #key for facebook login
-SOCIAL_AUTH_FACEBOOK_KEY = '1052578368137861'
-SOCIAL_AUTH_FACEBOOK_SECRET = '09f6de7ca423dcd6b3bcd3ec08feee7b'
 
-#key for google login
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '538712673303-326m7bhnan728uj2q0295fuur8dfm7lk.apps.googleusercontent.com'
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'Vd1YWM01zCGTX1NgSI2eGdmZ'
-
-SOCIAL_AUTH_GOOGLE_OAUTH2_IGNORE_DEFAULT_SCOPE =  True 
-SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE =  [ 
-    'https://www.googleapis.com/auth/userinfo.email' , 
-    'https://www.googleapis.com/auth/userinfo.profile' 
-]
-SOCIAL_AUTH_GOOGLE_OAUTH2_USE_DEPRECATED_API = True
-
-#key for twitter login
-SOCIAL_AUTH_TWITTER_KEY = 'uzV78La1F7AIbhNFnYyolUfp9'
-SOCIAL_AUTH_TWITTER_SECRET = 'I5LDgupesWGx5XHZdbiHBKEFTyqjue585R91ni6SPlXvO2H31x'
 
 #settings for Logger
 LOG_FILE = os.path.join(BASE_DIR, 'studentsdb.log')

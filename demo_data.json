@@ -2,6 +2,7 @@
 {
     "fields": {
         "model": "logentry",
+        "name": "log entry",
         "app_label": "admin"
     },
     "model": "contenttypes.contenttype",
@@ -10,6 +11,7 @@
 {
     "fields": {
         "model": "permission",
+        "name": "permission",
         "app_label": "auth"
     },
     "model": "contenttypes.contenttype",
@@ -18,6 +20,7 @@
 {
     "fields": {
         "model": "group",
+        "name": "group",
         "app_label": "auth"
     },
     "model": "contenttypes.contenttype",
@@ -26,6 +29,7 @@
 {
     "fields": {
         "model": "user",
+        "name": "user",
         "app_label": "auth"
     },
     "model": "contenttypes.contenttype",
@@ -34,6 +38,7 @@
 {
     "fields": {
         "model": "contenttype",
+        "name": "content type",
         "app_label": "contenttypes"
     },
     "model": "contenttypes.contenttype",
@@ -42,6 +47,7 @@
 {
     "fields": {
         "model": "session",
+        "name": "session",
         "app_label": "sessions"
     },
     "model": "contenttypes.contenttype",
@@ -50,6 +56,7 @@
 {
     "fields": {
         "model": "student",
+        "name": "student",
         "app_label": "students"
     },
     "model": "contenttypes.contenttype",
@@ -58,6 +65,7 @@
 {
     "fields": {
         "model": "group",
+        "name": "\u0413\u0440\u0443\u043f\u0430",
         "app_label": "students"
     },
     "model": "contenttypes.contenttype",
@@ -65,128 +73,152 @@
 },
 {
     "fields": {
-        "expire_date": "2015-09-28T17:24:05.088Z",
-        "session_data": "ZTFkOWNmMjYyNzQ4N2Y1ZGY0Zjk5OTQ2YWIyNTQzYWYzMzljOGE4ZTp7Il9hdXRoX3VzZXJfaGFzaCI6ImRkODc4NjZiZDg1NTk0YjVkN2VkOTNhNGYzZmMzNzgwNjMzZjhjZTAiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0="
+        "expire_date": "2014-11-15T13:03:48.503Z",
+        "session_data": "MDNiNmQ2OWY4YzZjZWMyODFhZWM2ZDRhZDgxNzE1NjE1Yzc0ZDIwZjp7fQ=="
     },
     "model": "sessions.session",
-    "pk": "fehkc24ifsk9t5ihfawto2i5svwk9fn0"
+    "pk": "6krg6dzgrk18qg7y68vfrtjivsacz5ks"
 },
 {
     "fields": {
-        "expire_date": "2015-08-12T10:33:49.410Z",
-        "session_data": "ZTFkOWNmMjYyNzQ4N2Y1ZGY0Zjk5OTQ2YWIyNTQzYWYzMzljOGE4ZTp7Il9hdXRoX3VzZXJfaGFzaCI6ImRkODc4NjZiZDg1NTk0YjVkN2VkOTNhNGYzZmMzNzgwNjMzZjhjZTAiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0="
+        "expire_date": "2014-11-15T13:03:51.896Z",
+        "session_data": "MDNiNmQ2OWY4YzZjZWMyODFhZWM2ZDRhZDgxNzE1NjE1Yzc0ZDIwZjp7fQ=="
     },
     "model": "sessions.session",
-    "pk": "imom7yvw0dnw9dygyh10azuae9odz6q7"
+    "pk": "iv401via0h4uovk4hwnxafhw9mrxfe23"
 },
 {
     "fields": {
-        "first_name": "\u041e\u043b\u044f",
-        "last_name": "\u0411\u0456\u043b\u0430\u0448",
-        "middle_name": "",
-        "photo": "./olya_TWatn9A.jpg",
-        "notes": "",
-        "student_group": 3,
-        "birthday": "2015-07-29",
-        "ticket": "234"
+        "expire_date": "2014-12-03T00:17:12.808Z",
+        "session_data": "NWU4NjRmOTUwOGQ5NDgxZGRlNzI2MDU0ZTVmOWJjZjMxZWIxNmFmZDp7Il9hdXRoX3VzZXJfaGFzaCI6IjljNzkxOGE4YTAxODE4NDk0YjRlMmZiODEyZWRkMjdkN2VkODI5YTkiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOjF9"
+    },
+    "model": "sessions.session",
+    "pk": "mvclwzvs0uqwpjcdg05ug0nb1paqwrj0"
+},
+{
+    "fields": {
+        "expire_date": "2014-11-24T13:48:32.951Z",
+        "session_data": "MDNiNmQ2OWY4YzZjZWMyODFhZWM2ZDRhZDgxNzE1NjE1Yzc0ZDIwZjp7fQ=="
+    },
+    "model": "sessions.session",
+    "pk": "r5ln1fzx2kpklj938z3svpyqllak4yi8"
+},
+{
+    "fields": {
+        "expire_date": "2014-11-23T10:46:01.969Z",
+        "session_data": "NWU4NjRmOTUwOGQ5NDgxZGRlNzI2MDU0ZTVmOWJjZjMxZWIxNmFmZDp7Il9hdXRoX3VzZXJfaGFzaCI6IjljNzkxOGE4YTAxODE4NDk0YjRlMmZiODEyZWRkMjdkN2VkODI5YTkiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOjF9"
+    },
+    "model": "sessions.session",
+    "pk": "yibmlzjio0jjacjooqrrixr2l6b4eqog"
+},
+{
+    "fields": {
+        "first_name": "Vitaliy",
+        "last_name": "Podoba",
+        "middle_name": "\u0406\u0432\u0430\u043d\u043e\u0432\u0438\u0447",
+        "photo": "./podoba3.jpg",
+        "notes": "\u043d\u043e\u0442\u0430\u0442\u043a\u0438",
+        "student_group": null,
+        "birthday": "2014-11-19",
+        "ticket": "1234"
     },
     "model": "students.student",
     "pk": 1
 },
 {
     "fields": {
-        "first_name": "\u0406\u0433\u043e\u0440",
-        "last_name": "\u0411\u0456\u043b\u043e\u0443\u0441",
-        "middle_name": "",
-        "photo": "./igorko.jpg",
-        "notes": "",
-        "student_group": 2,
-        "birthday": "2015-07-29",
-        "ticket": "237"
+        "first_name": "\u041d\u043e\u0432\u0438\u0439",
+        "last_name": "\u0421\u0442\u0443\u0434\u0435\u043d\u0442",
+        "middle_name": "\u043f\u043e\u0431\u0430\u0442\u044c\u043a\u043e\u0432\u0456",
+        "photo": "",
+        "notes": "\u043d\u043e\u0442\u0430\u0442\u043a\u0438",
+        "student_group": null,
+        "birthday": "2014-09-23",
+        "ticket": "234'"
     },
     "model": "students.student",
     "pk": 3
 },
 {
     "fields": {
-        "first_name": "\u0412\u043e\u043b\u043e\u0434\u0438\u043c\u0438\u0440",
-        "last_name": "\u042e\u0437\u0438\u0444\u0438\u0448\u0438\u043d",
+        "first_name": "\u041d\u0430\u0437\u0430\u0440",
+        "last_name": "\u041a\u0435\u043d\u044c\u043e",
         "middle_name": "",
-        "photo": "",
+        "photo": "./piv.png",
         "notes": "",
         "student_group": null,
-        "birthday": "2015-07-29",
-        "ticket": "198"
+        "birthday": "2014-11-18",
+        "ticket": "2123"
     },
     "model": "students.student",
     "pk": 4
 },
 {
     "fields": {
-        "first_name": "\u0412\u0456\u0442\u0430\u043b\u0456\u0439",
-        "last_name": "\u041d\u043e\u0441\u0443\u043b\u0456\u0447",
-        "middle_name": "",
+        "first_name": "\u042f\u0440\u043e\u0441\u043b\u0430\u0432",
+        "last_name": "\u0406\u0437\u0434\u0440\u0438\u043a",
+        "middle_name": "\u041c\u0438\u0445\u0430\u0439\u043b\u043e\u0432\u0438\u0447",
         "photo": "",
         "notes": "",
         "student_group": null,
-        "birthday": "2015-07-29",
-        "ticket": "185"
+        "birthday": "2014-11-11",
+        "ticket": "999"
     },
     "model": "students.student",
     "pk": 5
 },
 {
     "fields": {
-        "first_name": "\u0414\u0456\u043c\u0430",
-        "last_name": "\u0411\u0438\u0440\u0438\u0437\u043e\u0432\u0441\u044c\u043a\u0438\u0439",
-        "middle_name": "\u042f\u0440\u043e\u0441\u043b\u0430\u0432\u043e\u0432\u0438\u0447",
+        "first_name": "student 1",
+        "last_name": "last name 1",
+        "middle_name": "",
         "photo": "",
         "notes": "",
-        "student_group": 1,
-        "birthday": "2015-08-10",
-        "ticket": "2467"
+        "student_group": null,
+        "birthday": "2014-11-19",
+        "ticket": "222"
     },
     "model": "students.student",
     "pk": 6
 },
 {
     "fields": {
-        "first_name": "\u041d\u0430\u0437\u0430\u0440",
-        "last_name": "\u0412\u043e\u043b\u043e\u0448\u0438\u043d",
+        "first_name": "demo",
+        "last_name": "student",
         "middle_name": "",
         "photo": "",
         "notes": "",
-        "student_group": null,
-        "birthday": "2015-08-10",
-        "ticket": "2556"
+        "student_group": 1,
+        "birthday": "2014-11-27",
+        "ticket": "456"
     },
     "model": "students.student",
     "pk": 7
 },
 {
     "fields": {
-        "first_name": "\u0412\u0430\u0441\u0438\u043b\u044c",
-        "last_name": "\u0421\u0430\u0432\u0443\u043b\u0430",
+        "first_name": "student 3",
+        "last_name": "studnet 3",
         "middle_name": "",
         "photo": "",
         "notes": "",
         "student_group": null,
-        "birthday": "2015-08-10",
-        "ticket": "124"
+        "birthday": "2014-11-26",
+        "ticket": "678"
     },
     "model": "students.student",
     "pk": 8
 },
 {
     "fields": {
-        "first_name": "\u0410\u043d\u0434\u0440\u0456\u0439",
-        "last_name": "\u041c\u0430\u043b\u044e\u043a",
+        "first_name": "Danylo",
+        "last_name": "Test",
         "middle_name": "",
         "photo": "",
         "notes": "",
         "student_group": null,
-        "birthday": "2015-08-10",
-        "ticket": "678"
+        "birthday": null,
+        "ticket": ""
     },
     "model": "students.student",
     "pk": 9
@@ -194,8 +226,8 @@
 {
     "fields": {
         "notes": "",
-        "leader": 6,
-        "title": "KT-41"
+        "leader": null,
+        "title": "Demo Group"
     },
     "model": "students.group",
     "pk": 1
@@ -203,20 +235,11 @@
 {
     "fields": {
         "notes": "",
-        "leader": 3,
-        "title": "\u041a\u0411-41"
+        "leader": 1,
+        "title": "demo 1"
     },
     "model": "students.group",
     "pk": 2
-},
-{
-    "fields": {
-        "notes": "",
-        "leader": 1,
-        "title": "\u041a\u0410-41"
-    },
-    "model": "students.group",
-    "pk": 3
 },
 {
     "fields": {
@@ -436,29 +459,29 @@
 },
 {
     "fields": {
-        "username": "igorko",
+        "username": "admin",
         "first_name": "",
         "last_name": "",
         "is_active": true,
         "is_superuser": true,
         "is_staff": true,
-        "last_login": "2015-09-14T17:24:05.003Z",
+        "last_login": "2014-11-19T00:17:12.803Z",
         "groups": [],
         "user_permissions": [],
-        "password": "pbkdf2_sha256$20000$KQ05jAckDaHZ$TrcGuQyEqF4NoHxrRtSNtnA+Jt7xHpDccj2dtMH1JIQ=",
-        "email": "ihorbilous@yandex.ru",
-        "date_joined": "2015-05-31T10:55:55.583Z"
+        "password": "pbkdf2_sha256$12000$vwDz0jnc05bN$cZSSKKOkBa0RNAvEyRqNY1OrIfFpH6mpOxdLyc2aB0g=",
+        "email": "admin@admin.com",
+        "date_joined": "2014-11-01T12:59:32.011Z"
     },
     "model": "auth.user",
     "pk": 1
 },
 {
     "fields": {
-        "action_flag": 2,
-        "action_time": "2015-07-29T10:41:39.844Z",
-        "object_repr": "Olya Bilash",
-        "object_id": "1",
-        "change_message": "\u0417\u043c\u0456\u043d\u0435\u043d\u043e first_name.",
+        "action_flag": 1,
+        "action_time": "2014-11-19T00:19:10.540Z",
+        "object_repr": "\u041d\u043e\u0432\u0438\u0439 \u0421\u0442\u0443\u0434\u0435\u043d\u0442",
+        "object_id": "3",
+        "change_message": "",
         "user": 1,
         "content_type": 7
     },
@@ -467,11 +490,11 @@
 },
 {
     "fields": {
-        "action_flag": 1,
-        "action_time": "2015-07-29T10:43:36.788Z",
-        "object_repr": "Ihor Bilous",
-        "object_id": "3",
-        "change_message": "",
+        "action_flag": 2,
+        "action_time": "2014-11-19T01:03:43.054Z",
+        "object_repr": "Vitaliy Podoba",
+        "object_id": "1",
+        "change_message": "\u0417\u043c\u0456\u043d\u0435\u043d\u043e middle_name, photo, ticket \u0442\u0430 notes.",
         "user": 1,
         "content_type": 7
     },
@@ -480,11 +503,11 @@
 },
 {
     "fields": {
-        "action_flag": 1,
-        "action_time": "2015-07-29T10:44:45.212Z",
-        "object_repr": "Volodymyr Juzyfyshyn",
-        "object_id": "4",
-        "change_message": "",
+        "action_flag": 2,
+        "action_time": "2014-11-19T01:07:31.685Z",
+        "object_repr": "Vitaliy Podoba",
+        "object_id": "1",
+        "change_message": "\u0417\u043c\u0456\u043d\u0435\u043d\u043e photo.",
         "user": 1,
         "content_type": 7
     },
@@ -493,11 +516,11 @@
 },
 {
     "fields": {
-        "action_flag": 1,
-        "action_time": "2015-07-29T10:45:20.629Z",
-        "object_repr": "Vitaliy Nosulich",
-        "object_id": "5",
-        "change_message": "",
+        "action_flag": 2,
+        "action_time": "2014-11-19T01:07:40.159Z",
+        "object_repr": "Vitaliy Podoba",
+        "object_id": "1",
+        "change_message": "\u0417\u043c\u0456\u043d\u0435\u043d\u043e photo.",
         "user": 1,
         "content_type": 7
     },
@@ -506,11 +529,11 @@
 },
 {
     "fields": {
-        "action_flag": 2,
-        "action_time": "2015-07-29T11:17:11.940Z",
-        "object_repr": "Olya Bilash",
-        "object_id": "1",
-        "change_message": "\u0417\u043c\u0456\u043d\u0435\u043d\u043e photo.",
+        "action_flag": 1,
+        "action_time": "2014-11-19T01:25:33.999Z",
+        "object_repr": "\u041d\u0430\u0437\u0430\u0440 \u041a\u0435\u043d\u044c\u043e",
+        "object_id": "4",
+        "change_message": "",
         "user": 1,
         "content_type": 7
     },
@@ -519,11 +542,11 @@
 },
 {
     "fields": {
-        "action_flag": 2,
-        "action_time": "2015-07-29T11:17:38.912Z",
-        "object_repr": "Ihor Bilous",
-        "object_id": "3",
-        "change_message": "\u0417\u043c\u0456\u043d\u0435\u043d\u043e photo.",
+        "action_flag": 1,
+        "action_time": "2014-11-19T12:06:09.267Z",
+        "object_repr": "\u042f\u0440\u043e\u0441\u043b\u0430\u0432 \u0406\u0437\u0434\u0440\u0438\u043a",
+        "object_id": "5",
+        "change_message": "",
         "user": 1,
         "content_type": 7
     },
@@ -532,11 +555,11 @@
 },
 {
     "fields": {
-        "action_flag": 2,
-        "action_time": "2015-07-29T11:37:11.110Z",
-        "object_repr": "Olya Bilash",
-        "object_id": "1",
-        "change_message": "\u0417\u043c\u0456\u043d\u0435\u043d\u043e photo.",
+        "action_flag": 1,
+        "action_time": "2014-11-19T12:25:58.481Z",
+        "object_repr": "student 1 last name 1",
+        "object_id": "6",
+        "change_message": "",
         "user": 1,
         "content_type": 7
     },
@@ -545,11 +568,11 @@
 },
 {
     "fields": {
-        "action_flag": 2,
-        "action_time": "2015-07-29T11:37:33.334Z",
-        "object_repr": "Olya Bilash",
-        "object_id": "1",
-        "change_message": "\u0417\u043c\u0456\u043d\u0435\u043d\u043e photo.",
+        "action_flag": 1,
+        "action_time": "2014-11-19T12:26:12.332Z",
+        "object_repr": "demo student",
+        "object_id": "7",
+        "change_message": "",
         "user": 1,
         "content_type": 7
     },
@@ -558,11 +581,11 @@
 },
 {
     "fields": {
-        "action_flag": 2,
-        "action_time": "2015-07-29T12:00:07.984Z",
-        "object_repr": "Ihor Bilous",
-        "object_id": "3",
-        "change_message": "\u0417\u043c\u0456\u043d\u0435\u043d\u043e ticket.",
+        "action_flag": 1,
+        "action_time": "2014-11-19T12:30:13.991Z",
+        "object_repr": "student 3 studnet 3",
+        "object_id": "8",
+        "change_message": "",
         "user": 1,
         "content_type": 7
     },
@@ -572,12 +595,12 @@
 {
     "fields": {
         "action_flag": 2,
-        "action_time": "2015-07-29T12:04:08.908Z",
-        "object_repr": "\u041e\u043b\u044f \u0411\u0456\u043b\u0430\u0448",
+        "action_time": "2014-11-19T21:20:28.740Z",
+        "object_repr": "Demo Group (demo student)",
         "object_id": "1",
-        "change_message": "\u0417\u043c\u0456\u043d\u0435\u043d\u043e first_name \u0442\u0430 last_name.",
+        "change_message": "\u0417\u043c\u0456\u043d\u0435\u043d\u043e leader.",
         "user": 1,
-        "content_type": 7
+        "content_type": 8
     },
     "model": "admin.logentry",
     "pk": 10
@@ -585,10 +608,10 @@
 {
     "fields": {
         "action_flag": 2,
-        "action_time": "2015-07-29T12:04:32.148Z",
-        "object_repr": "\u0406\u0433\u043e\u0440 \u0411\u0456\u043b\u043e\u0443\u0441",
-        "object_id": "3",
-        "change_message": "\u0417\u043c\u0456\u043d\u0435\u043d\u043e first_name \u0442\u0430 last_name.",
+        "action_time": "2014-11-19T21:20:42.636Z",
+        "object_repr": "demo student",
+        "object_id": "7",
+        "change_message": "\u0417\u043c\u0456\u043d\u0435\u043d\u043e student_group.",
         "user": 1,
         "content_type": 7
     },
@@ -597,13 +620,13 @@
 },
 {
     "fields": {
-        "action_flag": 2,
-        "action_time": "2015-07-29T12:04:44.297Z",
-        "object_repr": "\u0412\u0456\u0442\u0430\u043b\u0456\u0439 Nosulich",
-        "object_id": "5",
-        "change_message": "\u0417\u043c\u0456\u043d\u0435\u043d\u043e first_name.",
+        "action_flag": 1,
+        "action_time": "2014-11-19T21:21:35.872Z",
+        "object_repr": "demo 1 (Vitaliy Podoba)",
+        "object_id": "2",
+        "change_message": "",
         "user": 1,
-        "content_type": 7
+        "content_type": 8
     },
     "model": "admin.logentry",
     "pk": 12
@@ -611,274 +634,14 @@
 {
     "fields": {
         "action_flag": 2,
-        "action_time": "2015-07-29T12:04:53.930Z",
-        "object_repr": "\u0412\u0456\u0442\u0430\u043b\u0456\u0439 \u041d\u043e\u0441\u0443\u043b\u0456\u0447",
-        "object_id": "5",
-        "change_message": "\u0417\u043c\u0456\u043d\u0435\u043d\u043e last_name.",
+        "action_time": "2014-11-19T21:22:17.832Z",
+        "object_repr": "Demo Group",
+        "object_id": "1",
+        "change_message": "\u0417\u043c\u0456\u043d\u0435\u043d\u043e leader.",
         "user": 1,
-        "content_type": 7
+        "content_type": 8
     },
     "model": "admin.logentry",
     "pk": 13
-},
-{
-    "fields": {
-        "action_flag": 2,
-        "action_time": "2015-07-29T12:05:10.672Z",
-        "object_repr": "\u0412\u043e\u043b\u043e\u0434\u0438\u043c\u0438\u0440 \u042e\u0437\u0438\u0444\u0438\u0448\u0438\u043d",
-        "object_id": "4",
-        "change_message": "\u0417\u043c\u0456\u043d\u0435\u043d\u043e first_name \u0442\u0430 last_name.",
-        "user": 1,
-        "content_type": 7
-    },
-    "model": "admin.logentry",
-    "pk": 14
-},
-{
-    "fields": {
-        "action_flag": 2,
-        "action_time": "2015-07-29T12:05:36.092Z",
-        "object_repr": "\u0406\u0433\u043e\u0440 \u0411\u0456\u043b\u043e\u0443\u0441",
-        "object_id": "3",
-        "change_message": "\u041f\u043e\u043b\u044f \u043d\u0435 \u0437\u043c\u0456\u043d\u0435\u043d\u0456.",
-        "user": 1,
-        "content_type": 7
-    },
-    "model": "admin.logentry",
-    "pk": 15
-},
-{
-    "fields": {
-        "action_flag": 2,
-        "action_time": "2015-07-29T12:06:19.963Z",
-        "object_repr": "\u0410\u0433\u0434\u0440\u0456\u0439 \u0411\u0456\u043b\u043e\u0443\u0441",
-        "object_id": "3",
-        "change_message": "\u0417\u043c\u0456\u043d\u0435\u043d\u043e first_name.",
-        "user": 1,
-        "content_type": 7
-    },
-    "model": "admin.logentry",
-    "pk": 16
-},
-{
-    "fields": {
-        "action_flag": 2,
-        "action_time": "2015-07-29T12:06:38.525Z",
-        "object_repr": "\u042f\u0440\u043e\u0441\u043b\u0430\u0432 \u0411\u0456\u043b\u043e\u0443\u0441",
-        "object_id": "3",
-        "change_message": "\u0417\u043c\u0456\u043d\u0435\u043d\u043e first_name.",
-        "user": 1,
-        "content_type": 7
-    },
-    "model": "admin.logentry",
-    "pk": 17
-},
-{
-    "fields": {
-        "action_flag": 2,
-        "action_time": "2015-07-29T12:06:54.997Z",
-        "object_repr": "\u0406\u0433\u043e\u0440 \u0411\u0456\u043b\u043e\u0443\u0441",
-        "object_id": "3",
-        "change_message": "\u0417\u043c\u0456\u043d\u0435\u043d\u043e first_name.",
-        "user": 1,
-        "content_type": 7
-    },
-    "model": "admin.logentry",
-    "pk": 18
-},
-{
-    "fields": {
-        "action_flag": 2,
-        "action_time": "2015-08-05T09:37:35.239Z",
-        "object_repr": "\u0406\u0433\u043e\u0440 \u0411\u0456\u043b\u043e\u0443\u0441",
-        "object_id": "3",
-        "change_message": "\u0417\u043c\u0456\u043d\u0435\u043d\u043e middle_name.",
-        "user": 1,
-        "content_type": 7
-    },
-    "model": "admin.logentry",
-    "pk": 19
-},
-{
-    "fields": {
-        "action_flag": 2,
-        "action_time": "2015-08-05T09:37:53.776Z",
-        "object_repr": "\u0406\u0433\u043e\u0440 \u0411\u0456\u043b\u043e\u0443\u0441",
-        "object_id": "3",
-        "change_message": "\u0417\u043c\u0456\u043d\u0435\u043d\u043e middle_name.",
-        "user": 1,
-        "content_type": 7
-    },
-    "model": "admin.logentry",
-    "pk": 20
-},
-{
-    "fields": {
-        "action_flag": 2,
-        "action_time": "2015-08-09T12:46:45.095Z",
-        "object_repr": "\u041e\u043b\u044f \u0411\u0456\u043b\u0430\u0448",
-        "object_id": "1",
-        "change_message": "\u041f\u043e\u043b\u044f \u043d\u0435 \u0437\u043c\u0456\u043d\u0435\u043d\u0456.",
-        "user": 1,
-        "content_type": 7
-    },
-    "model": "admin.logentry",
-    "pk": 21
-},
-{
-    "fields": {
-        "action_flag": 1,
-        "action_time": "2015-08-10T11:07:15.004Z",
-        "object_repr": "\u0414\u0456\u043c\u0430 \u0411\u0438\u0440\u0438\u0437\u043e\u0432\u0441\u044c\u043a\u0438\u0439",
-        "object_id": "6",
-        "change_message": "",
-        "user": 1,
-        "content_type": 7
-    },
-    "model": "admin.logentry",
-    "pk": 22
-},
-{
-    "fields": {
-        "action_flag": 1,
-        "action_time": "2015-08-10T11:07:42.608Z",
-        "object_repr": "\u041d\u0430\u0437\u0430\u0440 \u0412\u043e\u043b\u043e\u0448\u0438\u043d",
-        "object_id": "7",
-        "change_message": "",
-        "user": 1,
-        "content_type": 7
-    },
-    "model": "admin.logentry",
-    "pk": 23
-},
-{
-    "fields": {
-        "action_flag": 1,
-        "action_time": "2015-08-10T11:08:19.648Z",
-        "object_repr": "\u0412\u0430\u0441\u0438\u043b\u044c \u0421\u0430\u0432\u0443\u043b\u0430\u2019",
-        "object_id": "8",
-        "change_message": "",
-        "user": 1,
-        "content_type": 7
-    },
-    "model": "admin.logentry",
-    "pk": 24
-},
-{
-    "fields": {
-        "action_flag": 2,
-        "action_time": "2015-08-10T11:08:27.159Z",
-        "object_repr": "\u0412\u0430\u0441\u0438\u043b\u044c \u0421\u0430\u0432\u0443\u043b\u0430",
-        "object_id": "8",
-        "change_message": "\u0417\u043c\u0456\u043d\u0435\u043d\u043e last_name.",
-        "user": 1,
-        "content_type": 7
-    },
-    "model": "admin.logentry",
-    "pk": 25
-},
-{
-    "fields": {
-        "action_flag": 1,
-        "action_time": "2015-08-10T11:08:45.080Z",
-        "object_repr": "\u0410\u043d\u0434\u0440\u0456\u0439 \u041c\u0430\u043b\u044e\u043a",
-        "object_id": "9",
-        "change_message": "",
-        "user": 1,
-        "content_type": 7
-    },
-    "model": "admin.logentry",
-    "pk": 26
-},
-{
-    "fields": {
-        "action_flag": 2,
-        "action_time": "2015-08-11T10:03:22.324Z",
-        "object_repr": "\u0414\u0456\u043c\u0430 \u0411\u0438\u0440\u0438\u0437\u043e\u0432\u0441\u044c\u043a\u0438\u0439",
-        "object_id": "6",
-        "change_message": "\u0417\u043c\u0456\u043d\u0435\u043d\u043e middle_name.",
-        "user": 1,
-        "content_type": 7
-    },
-    "model": "admin.logentry",
-    "pk": 27
-},
-{
-    "fields": {
-        "action_flag": 1,
-        "action_time": "2015-09-15T17:12:32.585Z",
-        "object_repr": "\u041a\u0411-41 (\u0406\u0433\u043e\u0440 \u0411\u0456\u043b\u043e\u0443\u0441)",
-        "object_id": "2",
-        "change_message": "",
-        "user": 1,
-        "content_type": 8
-    },
-    "model": "admin.logentry",
-    "pk": 28
-},
-{
-    "fields": {
-        "action_flag": 1,
-        "action_time": "2015-09-15T17:12:44.664Z",
-        "object_repr": "\u041a\u0410-41 (\u041e\u043b\u044f \u0411\u0456\u043b\u0430\u0448)",
-        "object_id": "3",
-        "change_message": "",
-        "user": 1,
-        "content_type": 8
-    },
-    "model": "admin.logentry",
-    "pk": 29
-},
-{
-    "fields": {
-        "action_flag": 2,
-        "action_time": "2015-09-15T17:13:16.347Z",
-        "object_repr": "KT-41 (\u0414\u0456\u043c\u0430 \u0411\u0438\u0440\u0438\u0437\u043e\u0432\u0441\u044c\u043a\u0438\u0439)",
-        "object_id": "1",
-        "change_message": "\u0417\u043c\u0456\u043d\u0435\u043d\u043e title.",
-        "user": 1,
-        "content_type": 8
-    },
-    "model": "admin.logentry",
-    "pk": 30
-},
-{
-    "fields": {
-        "action_flag": 2,
-        "action_time": "2015-09-15T17:42:31.710Z",
-        "object_repr": "\u0414\u0456\u043c\u0430 \u0411\u0438\u0440\u0438\u0437\u043e\u0432\u0441\u044c\u043a\u0438\u0439",
-        "object_id": "6",
-        "change_message": "\u0417\u043c\u0456\u043d\u0435\u043d\u043e student_group.",
-        "user": 1,
-        "content_type": 7
-    },
-    "model": "admin.logentry",
-    "pk": 31
-},
-{
-    "fields": {
-        "action_flag": 2,
-        "action_time": "2015-09-15T17:42:38.363Z",
-        "object_repr": "\u041e\u043b\u044f \u0411\u0456\u043b\u0430\u0448",
-        "object_id": "1",
-        "change_message": "\u0417\u043c\u0456\u043d\u0435\u043d\u043e student_group.",
-        "user": 1,
-        "content_type": 7
-    },
-    "model": "admin.logentry",
-    "pk": 32
-},
-{
-    "fields": {
-        "action_flag": 2,
-        "action_time": "2015-09-15T17:42:44.761Z",
-        "object_repr": "\u0406\u0433\u043e\u0440 \u0411\u0456\u043b\u043e\u0443\u0441",
-        "object_id": "3",
-        "change_message": "\u0417\u043c\u0456\u043d\u0435\u043d\u043e student_group.",
-        "user": 1,
-        "content_type": 7
-    },
-    "model": "admin.logentry",
-    "pk": 33
 }
 ]

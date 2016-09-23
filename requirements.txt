@@ -1,6 +1,7 @@
 Django==1.8.2
 Pillow
 MySQL-python
+psycopg2==2.5.3
 django-crispy-forms==1.4.0
 python-dateutil
 django-registration-redux==1.3

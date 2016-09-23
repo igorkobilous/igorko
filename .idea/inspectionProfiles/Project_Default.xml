@@ -1,0 +1,87 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <value>
+          <list size="74">
+            <item index="0" class="java.lang.String" itemvalue="django-markdown" />
+            <item index="1" class="java.lang.String" itemvalue="simple-crypt" />
+            <item index="2" class="java.lang.String" itemvalue="PyYAML" />
+            <item index="3" class="java.lang.String" itemvalue="psycopg2" />
+            <item index="4" class="java.lang.String" itemvalue="good" />
+            <item index="5" class="java.lang.String" itemvalue="redis" />
+            <item index="6" class="java.lang.String" itemvalue="django-extensions" />
+            <item index="7" class="java.lang.String" itemvalue="django-extra-keywords" />
+            <item index="8" class="java.lang.String" itemvalue="django-widget-tweaks" />
+            <item index="9" class="java.lang.String" itemvalue="awesome-slugify" />
+            <item index="10" class="java.lang.String" itemvalue="django-admin-sortable" />
+            <item index="11" class="java.lang.String" itemvalue="grappelli-tools" />
+            <item index="12" class="java.lang.String" itemvalue="lxml" />
+            <item index="13" class="java.lang.String" itemvalue="django-multiselectfield" />
+            <item index="14" class="java.lang.String" itemvalue="django-waffle" />
+            <item index="15" class="java.lang.String" itemvalue="django-annoying" />
+            <item index="16" class="java.lang.String" itemvalue="django-ajax-selects" />
+            <item index="17" class="java.lang.String" itemvalue="xlrd" />
+            <item index="18" class="java.lang.String" itemvalue="django-crispy-forms" />
+            <item index="19" class="java.lang.String" itemvalue="django-safedelete" />
+            <item index="20" class="java.lang.String" itemvalue="FeinCMS" />
+            <item index="21" class="java.lang.String" itemvalue="enstaller" />
+            <item index="22" class="java.lang.String" itemvalue="django-modeltranslation" />
+            <item index="23" class="java.lang.String" itemvalue="konf" />
+            <item index="24" class="java.lang.String" itemvalue="django-reversion" />
+            <item index="25" class="java.lang.String" itemvalue="django-cacheops" />
+            <item index="26" class="java.lang.String" itemvalue="django-mptt" />
+            <item index="27" class="java.lang.String" itemvalue="django-memoize" />
+            <item index="28" class="java.lang.String" itemvalue="fake-factory" />
+            <item index="29" class="java.lang.String" itemvalue="django-extra-views" />
+            <item index="30" class="java.lang.String" itemvalue="django-filter" />
+            <item index="31" class="java.lang.String" itemvalue="fabric" />
+            <item index="32" class="java.lang.String" itemvalue="progressbar" />
+            <item index="33" class="java.lang.String" itemvalue="python-social-auth" />
+            <item index="34" class="java.lang.String" itemvalue="django-solo" />
+            <item index="35" class="java.lang.String" itemvalue="pytils" />
+            <item index="36" class="java.lang.String" itemvalue="django-templateloaderwithpriorities" />
+            <item index="37" class="java.lang.String" itemvalue="django-dbtemplates" />
+            <item index="38" class="java.lang.String" itemvalue="urlobject" />
+            <item index="39" class="java.lang.String" itemvalue="django-paymaster" />
+            <item index="40" class="java.lang.String" itemvalue="django-yandex-kassa" />
+            <item index="41" class="java.lang.String" itemvalue="diff-match-patch" />
+            <item index="42" class="java.lang.String" itemvalue="south" />
+            <item index="43" class="java.lang.String" itemvalue="django-stronghold" />
+            <item index="44" class="java.lang.String" itemvalue="jsonfield" />
+            <item index="45" class="java.lang.String" itemvalue="django-permission" />
+            <item index="46" class="java.lang.String" itemvalue="django-clever-selects" />
+            <item index="47" class="java.lang.String" itemvalue="suds" />
+            <item index="48" class="java.lang.String" itemvalue="sorl-thumbnail" />
+            <item index="49" class="java.lang.String" itemvalue="django-treeadmin" />
+            <item index="50" class="java.lang.String" itemvalue="django-activeurl" />
+            <item index="51" class="java.lang.String" itemvalue="djangorestframework" />
+            <item index="52" class="java.lang.String" itemvalue="django-celery" />
+            <item index="53" class="java.lang.String" itemvalue="python-docx" />
+            <item index="54" class="java.lang.String" itemvalue="sorl-thumbnail-async" />
+            <item index="55" class="java.lang.String" itemvalue="solid-i18n" />
+            <item index="56" class="java.lang.String" itemvalue="Paver" />
+            <item index="57" class="java.lang.String" itemvalue="django-mathfilters" />
+            <item index="58" class="java.lang.String" itemvalue="xlwt" />
+            <item index="59" class="java.lang.String" itemvalue="dill" />
+            <item index="60" class="java.lang.String" itemvalue="python-redis-lock" />
+            <item index="61" class="java.lang.String" itemvalue="chardet" />
+            <item index="62" class="java.lang.String" itemvalue="Paved" />
+            <item index="63" class="java.lang.String" itemvalue="django-grappelli" />
+            <item index="64" class="java.lang.String" itemvalue="django" />
+            <item index="65" class="java.lang.String" itemvalue="django-ipware" />
+            <item index="66" class="java.lang.String" itemvalue="django-storages==1.1.8.1" />
+            <item index="67" class="java.lang.String" itemvalue="django-redis" />
+            <item index="68" class="java.lang.String" itemvalue="django-colorfield" />
+            <item index="69" class="java.lang.String" itemvalue="django-aggregate-if" />
+            <item index="70" class="java.lang.String" itemvalue="django-pragmatic" />
+            <item index="71" class="java.lang.String" itemvalue="pytz" />
+            <item index="72" class="java.lang.String" itemvalue="django-endless-pagination" />
+            <item index="73" class="java.lang.String" itemvalue="unicodecsv" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>

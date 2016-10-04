@@ -13,14 +13,10 @@ from django.conf import global_settings
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 
+from .env_settings import *
+
 #BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-
-try:
-    from settings_local import *
-except ImportError:
-    import sys
-    sys.stderr.write('Unable to read settings_local.py\n')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
@@ -38,7 +34,6 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
-PORTAL_URL = 'http://localhost:8000'
 
 # Application definition
 
@@ -99,7 +94,6 @@ WSGI_APPLICATION = 'studentsdb.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
@@ -124,10 +118,6 @@ LANGUAGES = [
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
-STATIC_URL = '/static/'
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, '..', 'media')
-
 #crispy temlate
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
@@ -151,7 +141,6 @@ AUTHENTICATION_BACKENDS = (
 )
 
 #key for facebook login
-
 
 #settings for Logger
 LOG_FILE = os.path.join(BASE_DIR, 'studentsdb.log')

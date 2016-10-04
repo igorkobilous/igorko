@@ -1,0 +1,11 @@
+Changelog
+=========
+
+[1.0] - (2016-02-18)
+--------------------
+
+* Login bug fixed.
+  [git username]
+
+* Initial functionality in place.
+  [igorko]
